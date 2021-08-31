@@ -1,33 +1,37 @@
 //
-//  HomeVC.swift
+//  MyViewController.swift
 //  Memorius
 //
-//  Created by Devron Tombacco on 25/06/2021.
+//  Created by Devron Tombacco on 30/08/2021.
 //
 
 import UIKit
 
 class MyDecksVC: UIViewController {
 
-    let myButton = UIButton()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        view.addSubview(myButton)
-        configureButton()
+        view.backgroundColor = .systemGreen
+        navigationItem.title = "Home"
+        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
+        view.addSubview(button)
+        button.setTitle("push second controller", for: .normal)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
     }
     
-    func configureButton() {
-        myButton.setTitle("Go", for: .normal)
-        myButton.backgroundColor = .white
-        myButton.setTitleColor(.black, for: .normal)
-        myButton.frame = CGRect(x: 100, y: 400, width : 200, height: 52)
-        myButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    @objc func buttonClicked(){
+        let secondController = SecondViewController()
+        navigationController?.pushViewController(secondController, animated: true)
     }
 
-    @objc private func didTapButton() {
+}
 
+class SecondViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPink
+        navigationItem.title = "Second"
     }
-    
+
 }
