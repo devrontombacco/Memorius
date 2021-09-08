@@ -107,6 +107,8 @@ extension MyDecksVC: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         deckSearchBar.resignFirstResponder()
+        deckSearchBar.text? = ""
+    
     }
 }
 
