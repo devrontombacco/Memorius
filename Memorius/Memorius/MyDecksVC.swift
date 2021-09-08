@@ -104,6 +104,10 @@ extension MyDecksVC: UISearchBarDelegate {
         // reload tableView
         self.decksTableView.reloadData()
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        deckSearchBar.resignFirstResponder()
+    }
 }
 
 class SecondViewController: UIViewController {
