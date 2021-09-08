@@ -30,6 +30,7 @@ class MyDecksVC: UIViewController {
         configureSearchbar()
         deckSearchBar.delegate = self
         filteredData = testDataArray
+        configureNavigationController()
     }
     
     // MARK: UI Configuration Functions
@@ -52,6 +53,13 @@ class MyDecksVC: UIViewController {
             ])
     }
     
+    func configureNavigationController(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDeck))
+    }
+
+    @objc func addNewDeck(){
+        print("Add new deck here")
+    }
 
 }
 
@@ -108,7 +116,6 @@ extension MyDecksVC: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         deckSearchBar.resignFirstResponder()
         deckSearchBar.text? = ""
-    
     }
 }
 
