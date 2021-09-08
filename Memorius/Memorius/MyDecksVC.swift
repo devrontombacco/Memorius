@@ -10,13 +10,14 @@ import UIKit
 class MyDecksVC: UIViewController {
 
     let decksTableView = UITableView()
-    var testDataArray = ["Deck 1", "Deck 2", "Deck 3"]
+    var testDataArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
         navigationItem.title = "My Decks"
         view.addSubview(decksTableView)
+        decksTableView.delegate = self
         decksTableView.dataSource = self
         decksTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DeckTableViewCell")
         configureTableView()
@@ -30,10 +31,13 @@ class MyDecksVC: UIViewController {
                 decksTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
                 decksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        }
+    }
+    
+
 }
 
 extension MyDecksVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testDataArray.count
     }
@@ -46,6 +50,16 @@ extension MyDecksVC: UITableViewDataSource {
         
         return cell
     }
+    
+}
+
+extension MyDecksVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "", sender: nil)
+    }
+    
 }
 
 class SecondViewController: UIViewController {
@@ -60,7 +74,7 @@ class SecondViewController: UIViewController {
 
 
 
-//        decksTableView.delegate = self
+
 
 
 //    func configureButton(){
