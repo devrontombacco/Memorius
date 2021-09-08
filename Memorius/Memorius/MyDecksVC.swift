@@ -58,7 +58,9 @@ class MyDecksVC: UIViewController {
     }
 
     @objc func addNewDeck(){
-        print("Add new deck here")
+        print("Add new deck button clicked")
+        let secondController = SecondViewController()
+        navigationController?.pushViewController(secondController, animated: true)
     }
 
 }
@@ -128,20 +130,3 @@ class SecondViewController: UIViewController {
     }
 
 }
-
-
-
-
-
-
-//    func configureButton(){
-//        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 40))
-//        view.addSubview(button)
-//        button.setTitle("push second controller", for: .normal)
-//        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-//    }
-//
-//    @objc func buttonClicked(){
-//        let secondController = SecondViewController()
-//        navigationController?.pushViewController(secondController, animated: true)
-//    }
