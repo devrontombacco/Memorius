@@ -38,6 +38,8 @@ class MyDecksVC: UIViewController {
         deckSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         deckSearchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         deckSearchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        deckSearchBar.showsCancelButton = true
     }
 
     func configureTableView(){
