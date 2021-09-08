@@ -10,10 +10,16 @@ import UIKit
 class MyDecksVC: UIViewController {
 
     let decksTableView = UITableView()
+    
     var testDataArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9"]
+    
+    var filteredData : [String]!
+    
+    let deckSearchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(deckSearchBar)
         view.backgroundColor = .systemGreen
         navigationItem.title = "My Decks"
         view.addSubview(decksTableView)
@@ -21,12 +27,22 @@ class MyDecksVC: UIViewController {
         decksTableView.dataSource = self
         decksTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DeckTableViewCell")
         configureTableView()
+        configureSearchbar()
+        deckSearchBar.delegate = self
+        filteredData = testDataArray
     }
     
+    func configureSearchbar(){
+        deckSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        deckSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        deckSearchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        deckSearchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+
     func configureTableView(){
         decksTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-                decksTableView.topAnchor.constraint(equalTo: view.topAnchor),
+                decksTableView.topAnchor.constraint(equalTo: deckSearchBar.bottomAnchor),
                 decksTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
                 decksTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
                 decksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -39,14 +55,14 @@ class MyDecksVC: UIViewController {
 extension MyDecksVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testDataArray.count
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeckTableViewCell", for: indexPath)
         
-        cell.textLabel?.text = testDataArray[indexPath.row]
+        cell.textLabel?.text = filteredData[indexPath.row]
         
         return cell
     }
@@ -60,6 +76,29 @@ extension MyDecksVC: UITableViewDelegate {
         performSegue(withIdentifier: "", sender: nil)
     }
     
+}
+
+extension MyDecksVC: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredData = []
+        
+        // Make items appear in tableView if searchbar is empty
+        if searchText == "" {
+            filteredData = testDataArray
+        }
+        
+        // Match searchbar input to myDataArray
+        for word in testDataArray {
+            if word.uppercased().contains(searchText.uppercased()){
+                filteredData.append(word)
+            }
+        }
+        
+        // reload tableView
+        self.decksTableView.reloadData()
+    }
 }
 
 class SecondViewController: UIViewController {
