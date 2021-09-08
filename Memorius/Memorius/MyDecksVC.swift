@@ -20,7 +20,6 @@ class MyDecksVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(deckSearchBar)
-        view.backgroundColor = .systemGreen
         navigationItem.title = "My Decks"
         view.addSubview(decksTableView)
         decksTableView.delegate = self
