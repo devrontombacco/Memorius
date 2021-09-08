@@ -9,14 +9,15 @@ import UIKit
 
 class MyDecksVC: UIViewController {
 
-    let decksTableView = UITableView()
-    
+    // MARK:-- Variables
     var testDataArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9"]
-    
     var filteredData : [String]!
     
+    // MARK:-- UIElements
+    let decksTableView = UITableView()
     let deckSearchBar = UISearchBar()
     
+    // MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(deckSearchBar)
@@ -31,6 +32,7 @@ class MyDecksVC: UIViewController {
         filteredData = testDataArray
     }
     
+    // MARK: UI Configuration Functions
     func configureSearchbar(){
         deckSearchBar.translatesAutoresizingMaskIntoConstraints = false
         deckSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -51,6 +53,7 @@ class MyDecksVC: UIViewController {
 
 }
 
+// MARK:-- TABLEVIEW METHODS
 extension MyDecksVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +80,7 @@ extension MyDecksVC: UITableViewDelegate {
     
 }
 
+// MARK:-- SEARCHBAR METHODS
 extension MyDecksVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
