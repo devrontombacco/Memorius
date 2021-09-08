@@ -20,6 +20,7 @@ class MyDecksVC: UIViewController {
     // MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(deckSearchBar)
         navigationItem.title = "My Decks"
         view.addSubview(decksTableView)
@@ -59,8 +60,8 @@ class MyDecksVC: UIViewController {
 
     @objc func addNewDeck(){
         print("Add new deck button clicked")
-        let secondController = SecondViewController()
-        navigationController?.pushViewController(secondController, animated: true)
+        let nextVC = CreateFlashcardsVC()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }
@@ -121,12 +122,12 @@ extension MyDecksVC: UISearchBarDelegate {
     }
 }
 
-class SecondViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemPink
-        navigationItem.title = "Second"
-    }
-
-}
+//class SecondViewController: UIViewController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .systemPink
+//        navigationItem.title = "Second"
+//    }
+//
+//}
