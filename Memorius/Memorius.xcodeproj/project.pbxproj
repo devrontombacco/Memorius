@@ -54,6 +54,8 @@
 		98915E5F26EB6A46009D3601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,
+				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -82,8 +84,6 @@
 				98915E5F26EB6A46009D3601 /* Controller */,
 				98C7DE6826862BB300BA9B8C /* AppDelegate.swift */,
 				98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */,
-				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,
-				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
 				98C7DE7126862BB400BA9B8C /* Assets.xcassets */,
 				98C7DE7326862BB400BA9B8C /* LaunchScreen.storyboard */,
 				98C7DE7626862BB400BA9B8C /* Info.plist */,
