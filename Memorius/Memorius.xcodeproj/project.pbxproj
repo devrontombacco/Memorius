@@ -37,6 +37,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98915E5D26EB6A36009D3601 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		98915E5E26EB6A40009D3601 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		98915E5F26EB6A46009D3601 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		98C7DE5C26862BB300BA9B8C = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +77,9 @@
 		98C7DE6726862BB300BA9B8C /* Memorius */ = {
 			isa = PBXGroup;
 			children = (
+				98915E5D26EB6A36009D3601 /* Model */,
+				98915E5E26EB6A40009D3601 /* View */,
+				98915E5F26EB6A46009D3601 /* Controller */,
 				98C7DE6826862BB300BA9B8C /* AppDelegate.swift */,
 				98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */,
 				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,

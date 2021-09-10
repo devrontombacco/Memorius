@@ -10,8 +10,8 @@ import UIKit
 class CreateFlashcardsVC: UIViewController {
 
     // MARK:-- UIElements
-    let flascardFrontText = UILabel()
-    let flascardBackText = UILabel()
+    let flashcardFrontText = UILabel()
+    let flashcardBackText = UILabel()
     let flashcardFrontTextfield = UITextField()
     let flashcardBackTextfield = UITextField()
     let deckPicker = UIPickerView()
@@ -21,6 +21,7 @@ class CreateFlashcardsVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.title = "Create Flashcards"
+        view.addSubview(flashcardFrontText)
     }
 
 
