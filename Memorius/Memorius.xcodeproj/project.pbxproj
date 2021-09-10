@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */; };
+		98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */; };
 		98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6826862BB300BA9B8C /* AppDelegate.swift */; };
 		98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */; };
 		98C7DE7226862BB400BA9B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C7DE7126862BB400BA9B8C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardsVC.swift; sourceTree = "<group>"; };
+		98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemSectionHeading.swift; sourceTree = "<group>"; };
 		98C7DE6526862BB300BA9B8C /* Memorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C7DE6826862BB300BA9B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		98915E5E26EB6A40009D3601 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			files = (
 				98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */,
 				98EF6D3F26DD4EE500AFCF08 /* MyDecksVC.swift in Sources */,
+				98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */,
 				98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */,
 				985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */,
 			);
