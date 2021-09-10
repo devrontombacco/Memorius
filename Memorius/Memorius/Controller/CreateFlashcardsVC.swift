@@ -5,8 +5,8 @@
 //  Created by Devron Tombacco on 08/09/2021.
 //
 
+import Foundation
 import UIKit
-
 class CreateFlashcardsVC: UIViewController {
 
     // MARK:-- UIElements
@@ -22,9 +22,19 @@ class CreateFlashcardsVC: UIViewController {
         view.backgroundColor = .white
         navigationItem.title = "Create Flashcards"
         view.addSubview(flashcardFrontText)
+        configureFlashcardFrontText()
     }
 
-
+    func configureFlashcardFrontText(){
+        flashcardFrontText.translatesAutoresizingMaskIntoConstraints = false
+        flashcardFrontText.text = "Flashcard Front"
+        flashcardFrontText.textColor = .systemBlue
+        flashcardFrontText.backgroundColor = .white
+        flashcardFrontText.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 43).isActive = true
+        flashcardFrontText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 43).isActive = true
+        flashcardFrontText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 43).isActive = true
+        flashcardFrontText.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
     
 
 }
