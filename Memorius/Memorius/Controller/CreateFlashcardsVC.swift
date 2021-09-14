@@ -15,6 +15,7 @@ class CreateFlashcardsVC: UIViewController {
     let flashcardBackTextLabel = UILabel()
     let flashcardBackTextfield = UITextField()
     let deckPickerView = UIPickerView()
+    let createButton = UIButton()
     
     let testDeckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6"]
     
@@ -48,6 +49,10 @@ class CreateFlashcardsVC: UIViewController {
         configureDeckPickerView()
         deckPickerView.delegate = self
         deckPickerView.dataSource = self
+        
+        // createButton
+        view.addSubview(createButton)
+        configureCreateButton()
     }
 
     func configureFlashcardFrontTextLabel(){
@@ -120,6 +125,25 @@ class CreateFlashcardsVC: UIViewController {
         deckPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         deckPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         deckPickerView.backgroundColor = .white
+    }
+    
+    func configureCreateButton(){
+        createButton.translatesAutoresizingMaskIntoConstraints = false
+        createButton.topAnchor.constraint(equalTo: deckPickerView.bottomAnchor, constant: 20).isActive = true
+        createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        createButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        createButton.setTitle("Create Flashcard", for: .normal)
+        createButton.backgroundColor = .systemBlue
+        createButton.setTitleColor(.white, for: .normal)
+        createButton.layer.cornerRadius = 7
+        createButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        createButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        createButton.addTarget(self, action: #selector(didTapCreateButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapCreateButton() {
+        print("Create Button tapped")
     }
 
 }
