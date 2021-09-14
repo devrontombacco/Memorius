@@ -13,6 +13,7 @@ class CreateFlashcardsVC: UIViewController {
     let flashcardFrontTextLabel = UILabel()
     let flashcardFrontTextfield = UITextField()
     let flashcardBackTextLabel = UILabel()
+    let flashcardBackTextfield = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,10 @@ class CreateFlashcardsVC: UIViewController {
         view.addSubview(flashcardBackTextLabel)
         configureFlashcardBackTextLabel()
         
+        // flashcardBackTextfield
+        view.addSubview(flashcardBackTextfield)
+        configureFlashcardBackTextfield()
+        flashcardBackTextfield.delegate = self
     }
 
     func configureFlashcardFrontTextLabel(){
@@ -79,6 +84,26 @@ class CreateFlashcardsVC: UIViewController {
         flashcardFrontTextfield.returnKeyType = .done
         flashcardFrontTextfield.clearButtonMode = .whileEditing
     }
+    
+    func configureFlashcardBackTextfield(){
+        flashcardBackTextfield.translatesAutoresizingMaskIntoConstraints = false
+        
+        flashcardBackTextfield.topAnchor.constraint(equalTo: flashcardBackTextLabel.bottomAnchor, constant: 50).isActive = true
+        flashcardBackTextfield.leadingAnchor.constraint(equalTo: flashcardFrontTextLabel.leadingAnchor).isActive = true
+        flashcardBackTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        flashcardBackTextfield.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        
+        flashcardBackTextfield.placeholder = "Insert answer here..."
+        flashcardBackTextfield.textColor = .systemBlue
+        flashcardBackTextfield.backgroundColor = .white
+        flashcardBackTextfield.textAlignment = .left
+        flashcardBackTextfield.borderStyle = .roundedRect
+        flashcardBackTextfield.keyboardAppearance = .default
+        flashcardBackTextfield.keyboardType = .default
+        flashcardBackTextfield.font = UIFont.systemFont(ofSize: 12)
+        flashcardBackTextfield.returnKeyType = .done
+        flashcardBackTextfield.clearButtonMode = .whileEditing
+    }
 
 }
 
@@ -86,7 +111,12 @@ extension CreateFlashcardsVC: UITextFieldDelegate {
     
     // dismiss keyboard when tap return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        flashcardFrontTextfield.resignFirstResponder()
+        
+        if textField == flashcardFrontTextfield {
+            flashcardFrontTextfield.resignFirstResponder()
+        } else {
+            flashcardBackTextfield.resignFirstResponder()
+        }
         return true
     }
     
