@@ -10,9 +10,9 @@ import UIKit
 class CreateFlashcardsVC: UIViewController {
 
     // MARK:-- UIElements
-    let flashcardFrontTextLabel = UILabel()
+    let flashcardFrontTextLabel = MemSectionHeading()
     let flashcardFrontTextfield = UITextField()
-    let flashcardBackTextLabel = UILabel()
+    let flashcardBackTextLabel = MemSectionHeading()
     let flashcardBackTextfield = UITextField()
     let deckPickerView = UIPickerView()
     let createButton = UIButton()
@@ -56,27 +56,27 @@ class CreateFlashcardsVC: UIViewController {
     }
 
     func configureFlashcardFrontTextLabel(){
-        flashcardFrontTextLabel.translatesAutoresizingMaskIntoConstraints = false
+  
         flashcardFrontTextLabel.text = "Flashcard Front"
-        flashcardFrontTextLabel.textColor = .systemBlue
-        flashcardFrontTextLabel.backgroundColor = .white
+   
+   
         flashcardFrontTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 43).isActive = true
         flashcardFrontTextLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         flashcardFrontTextLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
         flashcardFrontTextLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        flashcardFrontTextLabel.font = UIFont.systemFont(ofSize: 15)
+    
     }
     
     func configureFlashcardBackTextLabel(){
-        flashcardBackTextLabel.translatesAutoresizingMaskIntoConstraints = false
+  
         flashcardBackTextLabel.text = "Flashcard Back"
-        flashcardBackTextLabel.textColor = .systemBlue
-        flashcardBackTextLabel.backgroundColor = .white
+  
+  
         flashcardBackTextLabel.topAnchor.constraint(equalTo: flashcardFrontTextfield.bottomAnchor, constant: 50).isActive = true
         flashcardBackTextLabel.leadingAnchor.constraint(equalTo: flashcardFrontTextfield.leadingAnchor).isActive = true
         flashcardBackTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
         flashcardBackTextLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        flashcardBackTextLabel.font = UIFont.systemFont(ofSize: 15)
+    
     }
     
     func configureFlashcardFrontTextfield(){

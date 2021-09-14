@@ -27,5 +27,11 @@ class MemSectionHeading: UILabel {
     func configureLabel() {
         translatesAutoresizingMaskIntoConstraints = false
         self.font = .systemFont(ofSize: 20, weight: .regular)
+        
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textColor = .systemBlue
+        self.backgroundColor = .white
+        self.font = UIFont.systemFont(ofSize: 15)
     }
 }
