@@ -14,6 +14,9 @@ class CreateFlashcardsVC: UIViewController {
     let flashcardFrontTextfield = UITextField()
     let flashcardBackTextLabel = UILabel()
     let flashcardBackTextfield = UITextField()
+    let deckPickerView = UIPickerView()
+    
+    let testDeckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,12 @@ class CreateFlashcardsVC: UIViewController {
         view.addSubview(flashcardBackTextfield)
         configureFlashcardBackTextfield()
         flashcardBackTextfield.delegate = self
+        
+        // deckPickerView
+        view.addSubview(deckPickerView)
+        configureDeckPickerView()
+        deckPickerView.delegate = self
+        deckPickerView.dataSource = self
     }
 
     func configureFlashcardFrontTextLabel(){
@@ -104,6 +113,14 @@ class CreateFlashcardsVC: UIViewController {
         flashcardBackTextfield.returnKeyType = .done
         flashcardBackTextfield.clearButtonMode = .whileEditing
     }
+    
+    func configureDeckPickerView(){
+        deckPickerView.translatesAutoresizingMaskIntoConstraints = false
+        deckPickerView.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 20).isActive = true
+        deckPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        deckPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        deckPickerView.backgroundColor = .white
+    }
 
 }
 
@@ -123,5 +140,26 @@ extension CreateFlashcardsVC: UITextFieldDelegate {
     // dismiss keyboard when tap outside textfield
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+}
+
+extension CreateFlashcardsVC: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return testDeckArray.count
+    }
+    
+    
+}
+
+extension CreateFlashcardsVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return testDeckArray[row]
     }
 }
