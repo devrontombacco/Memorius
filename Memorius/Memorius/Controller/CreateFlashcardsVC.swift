@@ -12,6 +12,7 @@ class CreateFlashcardsVC: UIViewController {
     // MARK:-- UILabels
     let flashcardFrontTextLabel = MemSectionHeading()
     let flashcardBackTextLabel = MemSectionHeading()
+    let addToDeckLabel = MemSectionHeading()
     
     // MARK:-- TextFields
     let flashcardFrontTextfield = UITextField()
@@ -48,6 +49,10 @@ class CreateFlashcardsVC: UIViewController {
         configureFlashcardBackTextfield()
         flashcardBackTextfield.delegate = self
         
+        // addToDeckLabel
+        view.addSubview(addToDeckLabel)
+        configureAddToDeckLabel()
+        
         // createButton
         view.addSubview(createButton)
         configureCreateButton()
@@ -75,6 +80,14 @@ class CreateFlashcardsVC: UIViewController {
         flashcardBackTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
         flashcardBackTextLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     
+    }
+    
+    func configureAddToDeckLabel(){
+        addToDeckLabel.text = "Add to Deck"
+        addToDeckLabel.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 50).isActive = true
+        addToDeckLabel.leadingAnchor.constraint(equalTo: flashcardBackTextfield.leadingAnchor).isActive = true
+        addToDeckLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        addToDeckLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func configureFlashcardFrontTextfield(){
@@ -116,10 +129,11 @@ class CreateFlashcardsVC: UIViewController {
         flashcardBackTextfield.returnKeyType = .done
         flashcardBackTextfield.clearButtonMode = .whileEditing
     }
+
     
     func configureCreateButton(){
         createButton.translatesAutoresizingMaskIntoConstraints = false
-        createButton.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 20).isActive = true
+        createButton.topAnchor.constraint(equalTo: addToDeckLabel.bottomAnchor, constant: 20).isActive = true
         createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
