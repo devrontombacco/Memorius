@@ -17,6 +17,7 @@ class CreateFlashcardsVC: UIViewController {
     // MARK:-- TextFields
     let flashcardFrontTextfield = UITextField()
     let flashcardBackTextfield = UITextField()
+    let addToDeckTextField = UITextField()
     
     // MARK:-- UIButtons
     let createButton = UIButton()
@@ -53,6 +54,10 @@ class CreateFlashcardsVC: UIViewController {
         view.addSubview(addToDeckLabel)
         configureAddToDeckLabel()
         
+        // addToDeckTextField
+        view.addSubview(addToDeckTextField)
+        configureAddToDeckTextField()
+        
         // createButton
         view.addSubview(createButton)
         configureCreateButton()
@@ -61,8 +66,6 @@ class CreateFlashcardsVC: UIViewController {
     func configureFlashcardFrontTextLabel(){
   
         flashcardFrontTextLabel.text = "Flashcard Front"
-   
-   
         flashcardFrontTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 43).isActive = true
         flashcardFrontTextLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         flashcardFrontTextLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
@@ -73,8 +76,6 @@ class CreateFlashcardsVC: UIViewController {
     func configureFlashcardBackTextLabel(){
   
         flashcardBackTextLabel.text = "Flashcard Back"
-  
-  
         flashcardBackTextLabel.topAnchor.constraint(equalTo: flashcardFrontTextfield.bottomAnchor, constant: 50).isActive = true
         flashcardBackTextLabel.leadingAnchor.constraint(equalTo: flashcardFrontTextfield.leadingAnchor).isActive = true
         flashcardBackTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
@@ -86,18 +87,16 @@ class CreateFlashcardsVC: UIViewController {
         addToDeckLabel.text = "Add to Deck"
         addToDeckLabel.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 50).isActive = true
         addToDeckLabel.leadingAnchor.constraint(equalTo: flashcardBackTextfield.leadingAnchor).isActive = true
-        addToDeckLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        addToDeckLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         addToDeckLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func configureFlashcardFrontTextfield(){
         flashcardFrontTextfield.translatesAutoresizingMaskIntoConstraints = false
-        
-        flashcardFrontTextfield.topAnchor.constraint(equalTo: flashcardFrontTextLabel.bottomAnchor, constant: 50).isActive = true
+        flashcardFrontTextfield.topAnchor.constraint(equalTo: flashcardFrontTextLabel.bottomAnchor, constant: 30).isActive = true
         flashcardFrontTextfield.leadingAnchor.constraint(equalTo: flashcardFrontTextLabel.leadingAnchor).isActive = true
         flashcardFrontTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         flashcardFrontTextfield.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        
         flashcardFrontTextfield.placeholder = "Insert question here..."
         flashcardFrontTextfield.textColor = .systemBlue
         flashcardFrontTextfield.backgroundColor = .white
@@ -112,12 +111,10 @@ class CreateFlashcardsVC: UIViewController {
     
     func configureFlashcardBackTextfield(){
         flashcardBackTextfield.translatesAutoresizingMaskIntoConstraints = false
-        
-        flashcardBackTextfield.topAnchor.constraint(equalTo: flashcardBackTextLabel.bottomAnchor, constant: 50).isActive = true
+        flashcardBackTextfield.topAnchor.constraint(equalTo: flashcardBackTextLabel.bottomAnchor, constant: 30).isActive = true
         flashcardBackTextfield.leadingAnchor.constraint(equalTo: flashcardFrontTextLabel.leadingAnchor).isActive = true
         flashcardBackTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         flashcardBackTextfield.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        
         flashcardBackTextfield.placeholder = "Insert answer here..."
         flashcardBackTextfield.textColor = .systemBlue
         flashcardBackTextfield.backgroundColor = .white
@@ -130,13 +127,29 @@ class CreateFlashcardsVC: UIViewController {
         flashcardBackTextfield.clearButtonMode = .whileEditing
     }
 
+    func configureAddToDeckTextField(){
+        addToDeckTextField.translatesAutoresizingMaskIntoConstraints = false
+        addToDeckTextField.topAnchor.constraint(equalTo: addToDeckLabel.bottomAnchor, constant: 30).isActive = true
+        addToDeckTextField.leadingAnchor.constraint(equalTo: addToDeckLabel.leadingAnchor).isActive = true
+        addToDeckTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        addToDeckTextField.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        addToDeckTextField.placeholder = "Deck name..."
+        addToDeckTextField.textColor = .systemBlue
+        addToDeckTextField.backgroundColor = .white
+        addToDeckTextField.textAlignment = .left
+        addToDeckTextField.borderStyle = .roundedRect
+        addToDeckTextField.keyboardAppearance = .default
+        addToDeckTextField.keyboardType = .default
+        addToDeckTextField.font = UIFont.systemFont(ofSize: 12)
+        addToDeckTextField.returnKeyType = .done
+        addToDeckTextField.clearButtonMode = .whileEditing
+    }
     
     func configureCreateButton(){
         createButton.translatesAutoresizingMaskIntoConstraints = false
-        createButton.topAnchor.constraint(equalTo: addToDeckLabel.bottomAnchor, constant: 20).isActive = true
+        createButton.topAnchor.constraint(equalTo: addToDeckTextField.bottomAnchor, constant: 50).isActive = true
         createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
         createButton.setTitle("Create Flashcard", for: .normal)
         createButton.backgroundColor = .systemBlue
         createButton.setTitleColor(.white, for: .normal)
