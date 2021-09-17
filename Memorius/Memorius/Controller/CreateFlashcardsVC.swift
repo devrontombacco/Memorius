@@ -14,7 +14,6 @@ class CreateFlashcardsVC: UIViewController {
     let flashcardFrontTextfield = UITextField()
     let flashcardBackTextLabel = MemSectionHeading()
     let flashcardBackTextfield = UITextField()
-    let deckPickerView = UIPickerView()
     let createButton = UIButton()
     
     let testDeckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6"]
@@ -43,12 +42,6 @@ class CreateFlashcardsVC: UIViewController {
         view.addSubview(flashcardBackTextfield)
         configureFlashcardBackTextfield()
         flashcardBackTextfield.delegate = self
-        
-        // deckPickerView
-        view.addSubview(deckPickerView)
-        configureDeckPickerView()
-        deckPickerView.delegate = self
-        deckPickerView.dataSource = self
         
         // createButton
         view.addSubview(createButton)
@@ -119,17 +112,9 @@ class CreateFlashcardsVC: UIViewController {
         flashcardBackTextfield.clearButtonMode = .whileEditing
     }
     
-    func configureDeckPickerView(){
-        deckPickerView.translatesAutoresizingMaskIntoConstraints = false
-        deckPickerView.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 20).isActive = true
-        deckPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        deckPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        deckPickerView.backgroundColor = .white
-    }
-    
     func configureCreateButton(){
         createButton.translatesAutoresizingMaskIntoConstraints = false
-        createButton.topAnchor.constraint(equalTo: deckPickerView.bottomAnchor, constant: 20).isActive = true
+        createButton.topAnchor.constraint(equalTo: flashcardBackTextfield.bottomAnchor, constant: 20).isActive = true
         createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
@@ -164,26 +149,5 @@ extension CreateFlashcardsVC: UITextFieldDelegate {
     // dismiss keyboard when tap outside textfield
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-}
-
-extension CreateFlashcardsVC: UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return testDeckArray.count
-    }
-    
-    
-}
-
-extension CreateFlashcardsVC: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return testDeckArray[row]
     }
 }
