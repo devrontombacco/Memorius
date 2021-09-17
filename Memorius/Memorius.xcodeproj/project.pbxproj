@@ -10,6 +10,7 @@
 		985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */; };
 		98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */; };
 		98BD04C726F4FDF100D3B2AB /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C626F4FDF100D3B2AB /* Flashcard.swift */; };
+		98BD04CA26F4FEAB00D3B2AB /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C926F4FEAB00D3B2AB /* Deck.swift */; };
 		98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6826862BB300BA9B8C /* AppDelegate.swift */; };
 		98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */; };
 		98C7DE7226862BB400BA9B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C7DE7126862BB400BA9B8C /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardsVC.swift; sourceTree = "<group>"; };
 		98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemSectionHeading.swift; sourceTree = "<group>"; };
 		98BD04C626F4FDF100D3B2AB /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		98BD04C926F4FEAB00D3B2AB /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		98C7DE6526862BB300BA9B8C /* Memorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C7DE6826862BB300BA9B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				98BD04C626F4FDF100D3B2AB /* Flashcard.swift */,
+				98BD04C926F4FEAB00D3B2AB /* Deck.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98BD04CA26F4FEAB00D3B2AB /* Deck.swift in Sources */,
 				98BD04C726F4FDF100D3B2AB /* Flashcard.swift in Sources */,
 				98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */,
 				98EF6D3F26DD4EE500AFCF08 /* MyDecksVC.swift in Sources */,
