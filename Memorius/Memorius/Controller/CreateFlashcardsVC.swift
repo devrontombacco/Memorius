@@ -9,13 +9,18 @@
 import UIKit
 class CreateFlashcardsVC: UIViewController {
 
-    // MARK:-- UIElements
+    // MARK:-- UILabels
     let flashcardFrontTextLabel = MemSectionHeading()
-    let flashcardFrontTextfield = UITextField()
     let flashcardBackTextLabel = MemSectionHeading()
+    
+    // MARK:-- TextFields
+    let flashcardFrontTextfield = UITextField()
     let flashcardBackTextfield = UITextField()
+    
+    // MARK:-- UIButtons
     let createButton = UIButton()
     
+    // MARK:-- Test Data
     let testDeckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6"]
     
     override func viewDidLoad() {
