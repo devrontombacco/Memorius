@@ -57,6 +57,7 @@ class CreateFlashcardsVC: UIViewController {
         // addToDeckTextField
         view.addSubview(addToDeckTextField)
         configureAddToDeckTextField()
+        addToDeckTextField.delegate = self
         
         // createButton
         view.addSubview(createButton)
@@ -172,9 +173,15 @@ extension CreateFlashcardsVC: UITextFieldDelegate {
         
         if textField == flashcardFrontTextfield {
             flashcardFrontTextfield.resignFirstResponder()
-        } else {
+            
+        } else if textField == flashcardBackTextfield {
             flashcardBackTextfield.resignFirstResponder()
+            
+        } else {
+            addToDeckTextField.resignFirstResponder()
+            
         }
+        
         return true
     }
     
@@ -182,4 +189,5 @@ extension CreateFlashcardsVC: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
 }
