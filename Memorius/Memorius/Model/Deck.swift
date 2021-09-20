@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-struct Deck {
+class Deck {
+    var name: String = "Not named yet"
     var flashcardArray: [Flashcard] = [
         Flashcard(question: "Example question here", answer: "Example Answer here")
     ]
