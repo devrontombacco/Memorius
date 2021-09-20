@@ -10,7 +10,7 @@ import UIKit
 class MyDecksVC: UIViewController {
 
     // MARK:-- Variables
-    var testDataArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9"]
+    
 
     var testBiologyDeck: [Flashcard] =
     [
@@ -33,6 +33,7 @@ class MyDecksVC: UIViewController {
         Flashcard(question: "What is an adjective?", answer: "a word describing a noun")
     ]
     
+    var testDataArray: [Deck] = [testBiologyDeck]
     var filteredData : [String]!
     
     // MARK:-- UIElements

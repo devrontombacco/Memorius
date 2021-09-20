@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Flashcard {
-    let question: String
-    let answer: String
+    var question: String
+    var answer: String
 }
 
