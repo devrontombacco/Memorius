@@ -11,29 +11,11 @@ class MyDecksVC: UIViewController {
 
     // MARK:-- Variables
     
-
-    var testBiologyDeck: [Flashcard] =
-    [
-        Flashcard(question: "Which organ pumps blood?", answer: "heart"),
-        Flashcard(question: "Which organ digests food?", answer: "stomach"),
-        Flashcard(question: "Which organ do you think with?", answer: "brain")
-    ]
+    var testBiologyDeck = Deck()
+    var testGeographyDeck = Deck()
+    var testEnglishDeck = Deck()
     
-    var testGeographyDeck: [Flashcard] =
-    [
-        Flashcard(question: "What is the capital of France?", answer: "Paris"),
-        Flashcard(question: "How many continents are there?", answer: "7"),
-        Flashcard(question: "What is a small mountain called?", answer: "Hill")
-    ]
-    
-    var testEnglishDeck: [Flashcard] =
-    [
-        Flashcard(question: "What is a verb?", answer: "an action word"),
-        Flashcard(question: "What is a noun?", answer: "a thing"),
-        Flashcard(question: "What is an adjective?", answer: "a word describing a noun")
-    ]
-    
-    var testDataArray: [Deck] = [testBiologyDeck]
+    var testDataArray: [Deck] = []
     var filteredData : [String]!
     
     // MARK:-- UIElements
@@ -55,6 +37,8 @@ class MyDecksVC: UIViewController {
         deckSearchBar.delegate = self
         filteredData = testDataArray
         configureNavigationController()
+        
+        addTestDecksToDataArray()
     }
     
     // MARK: UI Configuration Functions
@@ -86,6 +70,17 @@ class MyDecksVC: UIViewController {
         let nextVC = CreateFlashcardsVC()
         navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+    func addTestDecksToDataArray() {
+        testDataArray.append(testBiologyDeck)
+        testDataArray.append(testGeographyDeck)
+        testDataArray.append(testEnglishDeck)
+        
+        for deck in testDataArray{
+            print(deck)
+        }
+    }
+    
 
 }
 
@@ -144,13 +139,3 @@ extension MyDecksVC: UISearchBarDelegate {
         deckSearchBar.text? = ""
     }
 }
-
-//class SecondViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .systemPink
-//        navigationItem.title = "Second"
-//    }
-//
-//}

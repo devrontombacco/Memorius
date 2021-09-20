@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 struct Deck {
-    let flashcardArray: [Flashcard]
+    var flashcardArray: [Flashcard] = [
+        Flashcard(question: "Example question here", answer: "Example Answer here")
+    ]
 }
