@@ -38,7 +38,7 @@ class MyDecksVC: UIViewController {
     var testDeckArray = [Deck]()
     
 //    var testDataArray: [Deck] = []
-    var filteredData : [String]
+    var filteredData : [String] = []
     
     // MARK:-- UIElements
     let decksTableView = UITableView()
@@ -57,8 +57,9 @@ class MyDecksVC: UIViewController {
         configureTableView()
         configureSearchbar()
         deckSearchBar.delegate = self
-        filteredData = testDataArray
         configureNavigationController()
+        
+        filteredData = testDeckNames
         
         addTestDecksToDataArray()
     }
@@ -93,15 +94,7 @@ class MyDecksVC: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func addTestDecksToDataArray() {
-        testDataArray.append(testBiologyDeck)
-        testDataArray.append(testGeographyDeck)
-        testDataArray.append(testEnglishDeck)
-        
-        for deck in testDataArray{
-            print(deck)
-        }
-    }
+
     
 
 }
