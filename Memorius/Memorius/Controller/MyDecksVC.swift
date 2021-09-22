@@ -157,11 +157,13 @@ extension MyDecksVC: UISearchBarDelegate {
         
         }
         
-        // Match searchbar input to myDataArray
-        for word in testDataArray {
-            if word.uppercased().contains(searchText.uppercased()){
-                filteredData.append(word)
+        // Match searchbar input to testDeckArray
+        for deck in testDeckNames {
+            if deck.uppercased().contains(searchText.uppercased()){
+                filteredData.append(deck)
+                print(filteredData)
             }
+
         }
         
         // reload tableView
