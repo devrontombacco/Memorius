@@ -150,8 +150,11 @@ extension MyDecksVC: UISearchBarDelegate {
         filteredData = []
         
         // Make items appear in tableView if searchbar is empty
-        if searchText == "" {
-            filteredData = testDataArray
+         if searchText == "" {
+            print("searchbar empty")
+            let filteredDeckNames = testDeckNames.map {$0}
+            filteredData = filteredDeckNames
+        
         }
         
         // Match searchbar input to myDataArray
