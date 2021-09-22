@@ -37,7 +37,7 @@ class MyDecksVC: UIViewController {
     var testDeckNames = [String]()
     var testDeckArray = [Deck]()
     
-    var testDataArray: [Deck] = []
+//    var testDataArray: [Deck] = []
     var filteredData : [String]
     
     // MARK:-- UIElements
