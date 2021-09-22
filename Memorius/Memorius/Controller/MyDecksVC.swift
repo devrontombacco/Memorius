@@ -146,6 +146,7 @@ extension MyDecksVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        // reset searchBar
         filteredData = []
         
         // Make items appear in tableView if searchbar is empty
