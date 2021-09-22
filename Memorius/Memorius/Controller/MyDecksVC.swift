@@ -118,15 +118,15 @@ class MyDecksVC: UIViewController {
 extension MyDecksVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return filteredData.count
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeckTableViewCell", for: indexPath)
-        
-        cell.textLabel?.text = testDataArray[indexPath.row].name
-        
+        cell.textLabel?.text = filteredData[indexPath.row]
         return cell
     }
     
