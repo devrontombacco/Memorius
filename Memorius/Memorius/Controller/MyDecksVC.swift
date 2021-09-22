@@ -59,9 +59,9 @@ class MyDecksVC: UIViewController {
         deckSearchBar.delegate = self
         configureNavigationController()
         
+        createArrayOfDecks()
         filteredData = testDeckNames
-        
-        addTestDecksToDataArray()
+
     }
     
     // MARK: UI Configuration Functions
@@ -94,8 +94,23 @@ class MyDecksVC: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-
+    // create testDeckArray
+    func createArrayOfDecks(){
+        
+        testDeckArray.append(testBiologyDeck)
+        testDeckArray.append(testGeographyDeck)
+        testDeckArray.append(testEnglishDeck)
+        
+        createArrayOfDeckNames()
+    }
     
+    // create testDeckNames array
+    func createArrayOfDeckNames(){
+        
+        let deckNames = testDeckArray.map {$0.name}
+        testDeckNames = deckNames
+        
+    }
 
 }
 
