@@ -157,11 +157,12 @@ class CreateFlashcardsVC: UIViewController {
         createButton.layer.cornerRadius = 7
         createButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         createButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        createButton.addTarget(self, action: #selector(didTapCreateButton), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
     
-    @objc private func didTapCreateButton() {
+    @objc private func createButtonTapped() {
         print("Create Button tapped")
+        navigationController?.popViewController(animated: true)
     }
 
 }
