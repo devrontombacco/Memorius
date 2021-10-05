@@ -7,6 +7,12 @@
 
 
 import UIKit
+import RealmSwift
+
+protocol CreateFlashcardsVCDelegate {
+    func createCard(newlyCreatedFlashcard: Flashcard)
+}
+
 class CreateFlashcardsVC: UIViewController {
 
     // MARK:-- UILabels
@@ -22,8 +28,7 @@ class CreateFlashcardsVC: UIViewController {
     // MARK:-- UIButtons
     let createButton = UIButton()
     
-    // MARK:-- Test Data
-    let testDeckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6"]
+    var delegate: CreateFlashcardsVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,6 +167,9 @@ class CreateFlashcardsVC: UIViewController {
     
     @objc private func createButtonTapped() {
         print("Create Button tapped")
+        if let newQuestion = flashcardFrontTextfield.text, let newAnswer = flashcardBackTextfield.text {
+            delegate?.createCard(newlyCreatedFlashcard: Flashcard(question: "\(flashcardFrontTextfield.text!)", answer: "\(flashcardBackTextfield.text!)"))
+        }
         navigationController?.popViewController(animated: true)
     }
 
