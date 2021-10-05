@@ -11,11 +11,10 @@ import RealmSwift
 class MyDecksVC: UIViewController {
 
     // MARK:-- Variables
+//    var filteredData : [String] = []
     
-    var testDeckNames = [String]()
-    
-//    var testDataArray: [Deck] = []
-    var filteredData : [String] = []
+    let realm = try! Realm()
+    var realmDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
     
     // MARK:-- UIElements
     let decksTableView = UITableView()
@@ -35,11 +34,24 @@ class MyDecksVC: UIViewController {
         configureSearchbar()
         deckSearchBar.delegate = self
         configureNavigationController()
-        
-        createArrayOfDecks()
-        filteredData = testDeckNames
+//
+//        filteredData = testDeckNames
 
+        // Realm configuration
+        let path = realm.configuration.fileURL?.path
+        print("Path: \(String(describing: path))")
+        
     }
+    
+    //MARK:-- REALM CONFIG
+//    func addToRealm(){
+//        if realm.isEmpty {
+//            try! realm.write {
+//                realm.add(flashcard1)
+//                realm.add(flashcard2)
+//            }
+//        }
+//    }
     
     // MARK: UI Configuration Functions
     func configureSearchbar(){
@@ -70,24 +82,6 @@ class MyDecksVC: UIViewController {
         let nextVC = CreateFlashcardsVC()
         navigationController?.pushViewController(nextVC, animated: true)
     }
-    
-    // create testDeckArray
-    func createArrayOfDecks(){
-        
-        testDeckArray.append(testBiologyDeck)
-        testDeckArray.append(testGeographyDeck)
-        testDeckArray.append(testEnglishDeck)
-        
-        createArrayOfDeckNames()
-    }
-    
-    // create testDeckNames array
-    func createArrayOfDeckNames(){
-        
-        let deckNames = testDeckArray.map {$0.name}
-        testDeckNames = deckNames
-        
-    }
 
 }
 
@@ -96,14 +90,14 @@ extension MyDecksVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return filteredData.count
+        return realmDataArray.count
     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeckTableViewCell", for: indexPath)
-        cell.textLabel?.text = filteredData[indexPath.row]
+        cell.textLabel?.text = realmDataArray[indexPath.row].question
         return cell
     }
     
@@ -124,24 +118,24 @@ extension MyDecksVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         // reset searchBar
-        filteredData = []
+//        filteredData = []
         
         // Make items appear in tableView if searchbar is empty
-         if searchText == "" {
-            print("searchbar empty")
-            let filteredDeckNames = testDeckNames.map {$0}
-            filteredData = filteredDeckNames
-        
-        }
+//         if searchText == "" {
+//            print("searchbar empty")
+//            let filteredDeckNames = testDeckNames.map {$0}
+//            filteredData = filteredDeckNames
+//        
+//        }
         
         // Match searchbar input to testDeckArray
-        for deck in testDeckNames {
-            if deck.uppercased().contains(searchText.uppercased()){
-                filteredData.append(deck)
-                print(filteredData)
-            }
-
-        }
+//        for deck in testDeckNames {
+//            if deck.uppercased().contains(searchText.uppercased()){
+//                filteredData.append(deck)
+//                print(filteredData)
+//            }
+//
+//        }
         
         // reload tableView
         self.decksTableView.reloadData()
