@@ -11,31 +11,7 @@ class MyDecksVC: UIViewController {
 
     // MARK:-- Variables
     
-    var testBiologyDeck = Deck(name: "Biology", flashcardArray:
-        [
-         Flashcard(question: "which organ pumps blood?", answer: "heart"),
-         Flashcard(question: "which organ sees?", answer: "eyes"),
-         Flashcard(question: "which organ digests?", answer: "stomach")
-        ])
-
-    var testGeographyDeck = Deck(name: "Geography", flashcardArray:
-        [
-         Flashcard(question: "what is the capital of Japan?", answer: "Tokyo"),
-         Flashcard(question: "what is the capital of France?", answer: "Paris"),
-         Flashcard(question: "what is the capital of Italy?", answer: "Rome")
-        
-        ])
-
-    var testEnglishDeck = Deck(name: "English", flashcardArray:
-        [
-         Flashcard(question: "Name a famous English writer", answer: "Shakespeare"),
-         Flashcard(question: "Name a boring text", answer: "poem"),
-         Flashcard(question: "Name an action word", answer: "verb"),
-        
-        ])
-    
     var testDeckNames = [String]()
-    var testDeckArray = [Deck]()
     
 //    var testDataArray: [Deck] = []
     var filteredData : [String] = []
