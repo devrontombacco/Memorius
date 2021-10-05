@@ -13,6 +13,8 @@ class MyDecksVC: UIViewController {
     // MARK:-- Variables
 //    var filteredData : [String] = []
     
+    var newFlashcard = Flashcard()
+    
     let realm = try! Realm()
     var realmDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
     
@@ -43,15 +45,18 @@ class MyDecksVC: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        decksTableView.reloadData()
+        
+    }
+    
     //MARK:-- REALM CONFIG
-//    func addToRealm(){
-//        if realm.isEmpty {
-//            try! realm.write {
-//                realm.add(flashcard1)
-//                realm.add(flashcard2)
-//            }
-//        }
-//    }
+    func addToRealm(toAdd: Flashcard){
+        try! realm.write {
+            realm.add(newFlashcard)
+        }
+    }
     
     // MARK: UI Configuration Functions
     func configureSearchbar(){
@@ -80,6 +85,7 @@ class MyDecksVC: UIViewController {
     @objc func addNewDeck(){
         print("Add new deck button clicked")
         let nextVC = CreateFlashcardsVC()
+        nextVC.delegate = self
         navigationController?.pushViewController(nextVC, animated: true)
     }
 
@@ -145,4 +151,14 @@ extension MyDecksVC: UISearchBarDelegate {
         deckSearchBar.resignFirstResponder()
         deckSearchBar.text? = ""
     }
+}
+
+extension MyDecksVC: CreateFlashcardsVCDelegate {
+    
+    func createCard(newlyCreatedFlashcard: Flashcard) {
+        
+        newFlashcard = newlyCreatedFlashcard
+        addToRealm(toAdd: newFlashcard)
+    }
+
 }
