@@ -5,11 +5,17 @@
 //  Created by Devron Tombacco on 17/09/2021.
 //
 
-import Foundation
 import UIKit
+import RealmSwift
 
-struct Flashcard {
-    var question: String
-    var answer: String
+class Flashcard: Object {
+    @objc dynamic var question = ""
+    @objc dynamic var answer = ""
+    
+    convenience init(question: String, answer: String) {
+        self.init()
+        self.question = question
+        self.answer = answer
+    }
 }
 
