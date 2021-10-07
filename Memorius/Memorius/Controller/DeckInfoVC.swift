@@ -18,13 +18,14 @@ class DeckInfoVC: UIViewController {
         
         view.addSubview(deckDescriptionLabel)
         configureDeckDescriptionLabel()
+        
     }
     
     func configureDeckDescriptionLabel() {
         
         deckDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        deckDescriptionLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 40).isActive = true
+        deckDescriptionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         deckDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         .isActive = true
         deckDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
