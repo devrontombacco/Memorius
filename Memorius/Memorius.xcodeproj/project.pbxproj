@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */; };
 		98BD04C726F4FDF100D3B2AB /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C626F4FDF100D3B2AB /* Flashcard.swift */; };
 		98BD04CA26F4FEAB00D3B2AB /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C926F4FEAB00D3B2AB /* Deck.swift */; };
+		98BD9053270F5FF7005DBC50 /* DeckInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */; };
 		98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6826862BB300BA9B8C /* AppDelegate.swift */; };
 		98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */; };
 		98C7DE7226862BB400BA9B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C7DE7126862BB400BA9B8C /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemSectionHeading.swift; sourceTree = "<group>"; };
 		98BD04C626F4FDF100D3B2AB /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 		98BD04C926F4FEAB00D3B2AB /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckInfoVC.swift; sourceTree = "<group>"; };
 		98C7DE6526862BB300BA9B8C /* Memorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C7DE6826862BB300BA9B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +56,6 @@
 				A80A837B0FDF9C832E303641 /* Pods-Memorius.debug.xcconfig */,
 				0126CE9D92A0BC087B35A8ED /* Pods-Memorius.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,6 +81,7 @@
 			children = (
 				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,
 				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
+				98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,6 +247,7 @@
 				98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */,
 				98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */,
 				985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */,
+				98BD9053270F5FF7005DBC50 /* DeckInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

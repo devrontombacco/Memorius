@@ -107,13 +107,16 @@ extension MyDecksVC: UITableViewDataSource {
         return cell
     }
     
+    
 }
 
 extension MyDecksVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "", sender: nil)
+        decksTableView.deselectRow(at: indexPath, animated: true)
+        let nextVC = DeckInfoVC()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
