@@ -22,7 +22,7 @@ class DeckInfoVC: UIViewController {
     var deckDescriptionTextView = UITextView()
     
     
-    // MARK: -- UIImages
+    // MARK: -- UIIMAGES
     let lastScoreImage = NSTextAttachment()
     let deckCreatedImage = NSTextAttachment()
     let highScoreImage = NSTextAttachment()
@@ -103,17 +103,13 @@ class DeckInfoVC: UIViewController {
     func configureDeckStatsStackView(){
         
         deckStatsStackView.translatesAutoresizingMaskIntoConstraints = false
-        deckStatsStackView.topAnchor.constraint(equalTo: deckDescriptionTextView.bottomAnchor, constant: 30).isActive = true
+        deckStatsStackView.topAnchor.constraint(equalTo: deckDescriptionTextView.bottomAnchor, constant: 70).isActive = true
         deckStatsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        deckStatsStackView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-//        deckStatsStackView.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        
         deckStatsStackView.addArrangedSubview(lastScoreLabel)
         deckStatsStackView.addArrangedSubview(deckCreatedLabel)
         deckStatsStackView.addArrangedSubview(highScoreLabel)
         deckStatsStackView.addArrangedSubview(lastRunthroughLabel)
         deckStatsStackView.addArrangedSubview(noOfFlashcardsLabel)
-        
         deckStatsStackView.axis = .vertical
         deckStatsStackView.backgroundColor = .white
         deckStatsStackView.distribution = .fillEqually
