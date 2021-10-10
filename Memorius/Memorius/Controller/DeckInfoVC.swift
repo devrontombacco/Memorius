@@ -9,9 +9,25 @@ import UIKit
 
 class DeckInfoVC: UIViewController {
 
-    let deckDescriptionLabel = UILabel()
+    // MARK:-- UILABELS
+    let deckDescriptionLabel      = UILabel()
+    let lastScoreLabel            = UILabel()
+    let deckCreatedLabel          = UILabel()
+    let deckCategoryLabel         = UILabel()
+    let highScoreLabel            = UILabel()
+    let lastRunthroughLabel       = UILabel()
+    let noOfFlashcardsLabel       = UILabel()
+    
+    // MARK:-- UITEXTVIEWS
     var deckDescriptionTextView = UITextView()
     
+    // MARK:-- ARRAYS
+    var deckStatsArray = [UILabel]()
+    
+    // MARK:-- UISTACKVIEWS
+    let deckStatsStackView = UIStackView()
+    
+    //MARK:-- VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,14 +35,19 @@ class DeckInfoVC: UIViewController {
         
         view.addSubview(deckDescriptionLabel)
         view.addSubview(deckDescriptionTextView)
+        view.addSubview(deckStatsStackView)
         
         configureDeckDescriptionLabel()
         configureDeckDescriptionTextView()
+        configureDeckStatsStackView()
+        configureDeckStatsStackViewLabels()
+        
         deckDescriptionTextView.delegate = self
             
         view.backgroundColor = .white
     }
     
+    // MARK:-- UI CONFIGURATION METHODS
     func configureDeckDescriptionLabel() {
         
         deckDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,9 +91,74 @@ class DeckInfoVC: UIViewController {
 
     }
     
+    func configureDeckStatsStackView(){
+        
+        deckStatsStackView.translatesAutoresizingMaskIntoConstraints = false
+        deckStatsStackView.topAnchor.constraint(equalTo: deckDescriptionTextView.bottomAnchor, constant: 30).isActive = true
+        deckStatsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        deckStatsStackView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+//        deckStatsStackView.widthAnchor.constraint(equalToConstant: 75).isActive = true
+        
+        deckStatsStackView.addArrangedSubview(lastScoreLabel)
+        deckStatsStackView.addArrangedSubview(deckCreatedLabel)
+        deckStatsStackView.addArrangedSubview(highScoreLabel)
+        deckStatsStackView.addArrangedSubview(lastRunthroughLabel)
+        deckStatsStackView.addArrangedSubview(noOfFlashcardsLabel)
+        
+        deckStatsStackView.axis = .vertical
+        deckStatsStackView.backgroundColor = .white
+        deckStatsStackView.distribution = .fillEqually
+        deckStatsStackView.spacing = 10
+        deckStatsStackView.alignment = .leading
+        
+    }
+    
+    func configureDeckStatsStackViewLabels(){
+        
+        lastScoreLabel.text = "Last Score: "
+        lastScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        lastScoreLabel.backgroundColor = .white
+        lastScoreLabel.textColor = .systemBlue
+        lastScoreLabel.font = UIFont(name: "helvetica", size: 12)
+        
+        deckCreatedLabel.text = "Date Created: "
+        deckCreatedLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        deckCreatedLabel.backgroundColor = .white
+        deckCreatedLabel.textColor = .systemBlue
+        deckCreatedLabel.font = UIFont(name: "helvetica", size: 12)
+        
+        deckCategoryLabel.text = "Category: "
+        deckCategoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        deckCategoryLabel.backgroundColor = .white
+        deckCategoryLabel.textColor = .systemBlue
+        deckCategoryLabel.font = UIFont(name: "helvetica", size: 12)
+        
+        highScoreLabel.text = "High Score: "
+        highScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        highScoreLabel.backgroundColor = .white
+        highScoreLabel.textColor = .systemBlue
+        highScoreLabel.font = UIFont(name: "helvetica", size: 12)
+        
+        lastRunthroughLabel.text = "Last Run Through: "
+        lastRunthroughLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        lastRunthroughLabel.backgroundColor = .white
+        lastRunthroughLabel.textColor = .systemBlue
+        lastRunthroughLabel.font = UIFont(name: "helvetica", size: 12)
+        
+        noOfFlashcardsLabel.text = "No. of Flashcards: "
+        noOfFlashcardsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        noOfFlashcardsLabel.backgroundColor = .white
+        noOfFlashcardsLabel.textColor = .systemBlue
+        noOfFlashcardsLabel.font = UIFont(name: "helvetica", size: 12)
+    
+    }
+    
+
+    
 
 }
 
+// MARK:-- UITEXTVIEWDELEGATE
 extension DeckInfoVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
