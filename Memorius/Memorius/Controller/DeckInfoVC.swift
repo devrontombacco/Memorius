@@ -21,6 +21,14 @@ class DeckInfoVC: UIViewController {
     // MARK:-- UITEXTVIEWS
     var deckDescriptionTextView = UITextView()
     
+    
+    // MARK: -- UIImages
+    let lastScoreImage = NSTextAttachment()
+    let deckCreatedImage = NSTextAttachment()
+    let highScoreImage = NSTextAttachment()
+    let lastRunthroughImage = NSTextAttachment()
+    let noOfFlashcardsImage = NSTextAttachment()
+    
     // MARK:-- ARRAYS
     var deckStatsArray = [UILabel]()
     
@@ -41,6 +49,7 @@ class DeckInfoVC: UIViewController {
         configureDeckDescriptionTextView()
         configureDeckStatsStackView()
         configureDeckStatsStackViewLabels()
+        configureStackViewLabelImages()
         
         deckDescriptionTextView.delegate = self
             
@@ -153,7 +162,39 @@ class DeckInfoVC: UIViewController {
     
     }
     
-
+    func configureStackViewLabelImages(){
+        
+        lastScoreImage.image = UIImage(systemName: "chart.bar.fill")
+        let lastScoreLabelFullstring = NSMutableAttributedString(string: " ")
+        lastScoreLabelFullstring.append(NSAttributedString(attachment: lastScoreImage))
+        lastScoreLabelFullstring.append(NSAttributedString(string: "  Last score: "))
+        lastScoreLabel.attributedText = lastScoreLabelFullstring
+        
+        deckCreatedImage.image = UIImage(systemName: "calendar")
+        let deckCreatedImageFullstring = NSMutableAttributedString(string: " ")
+        deckCreatedImageFullstring.append(NSAttributedString(attachment: deckCreatedImage))
+        deckCreatedImageFullstring.append(NSAttributedString(string: "  Deck created: "))
+        deckCreatedLabel.attributedText = deckCreatedImageFullstring
+        
+        highScoreImage.image = UIImage(systemName: "folder.fill")
+        let highScoreImageFullstring = NSMutableAttributedString(string: " ")
+        highScoreImageFullstring.append(NSAttributedString(attachment: highScoreImage))
+        highScoreImageFullstring.append(NSAttributedString(string: "  High score:"))
+        highScoreLabel.attributedText = highScoreImageFullstring
+        
+        lastRunthroughImage.image = UIImage(systemName: "clock.arrow.2.circlepath")
+        let lastRunthroughImageFullstring = NSMutableAttributedString(string: " ")
+        lastRunthroughImageFullstring.append(NSAttributedString(attachment: lastRunthroughImage))
+        lastRunthroughImageFullstring.append(NSAttributedString(string: "  Last run through:"))
+        lastRunthroughLabel.attributedText = lastRunthroughImageFullstring
+        
+        noOfFlashcardsImage.image = UIImage(systemName: "number")
+        let noOfFlashcardsImageFullstring = NSMutableAttributedString(string: " ")
+        noOfFlashcardsImageFullstring.append(NSAttributedString(attachment: noOfFlashcardsImage))
+        noOfFlashcardsImageFullstring.append(NSAttributedString(string: "  No. of flashcards: "))
+        noOfFlashcardsLabel.attributedText = noOfFlashcardsImageFullstring
+        
+    }
     
 
 }
