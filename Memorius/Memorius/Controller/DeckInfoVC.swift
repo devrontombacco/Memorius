@@ -35,6 +35,9 @@ class DeckInfoVC: UIViewController {
     // MARK:-- UISTACKVIEWS
     let deckStatsStackView = UIStackView()
     
+    // MARK: UIBUTTON
+    let startButton = UIButton()
+    
     //MARK:-- VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +47,14 @@ class DeckInfoVC: UIViewController {
         view.addSubview(deckDescriptionLabel)
         view.addSubview(deckDescriptionTextView)
         view.addSubview(deckStatsStackView)
+        view.addSubview(startButton)
         
         configureDeckDescriptionLabel()
         configureDeckDescriptionTextView()
         configureDeckStatsStackView()
         configureDeckStatsStackViewLabels()
         configureStackViewLabelImages()
+        configureStartButton()
         
         deckDescriptionTextView.delegate = self
             
@@ -192,6 +197,26 @@ class DeckInfoVC: UIViewController {
         
     }
     
+    func configureStartButton(){
+        
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        startButton.topAnchor.constraint(equalTo: deckStatsStackView.bottomAnchor, constant: 70).isActive = true
+        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        startButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        startButton.widthAnchor.constraint(equalToConstant: 148).isActive = true
+        startButton.setTitle("START", for: .normal)
+        startButton.backgroundColor = .systemBlue
+        startButton.setTitleColor(.white, for: .normal)
+        startButton.layer.cornerRadius = 10
+        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        startButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        startButton.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapStartButton() {
+//        let nextVC = RunthroughVC()
+//        navigationController?.pushViewController(nextVC)
+    }
 
 }
 
