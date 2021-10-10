@@ -17,6 +17,7 @@
 		98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */; };
 		98C7DE7226862BB400BA9B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C7DE7126862BB400BA9B8C /* Assets.xcassets */; };
 		98C7DE7526862BB400BA9B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C7DE7326862BB400BA9B8C /* LaunchScreen.storyboard */; };
+		98D11227271363BF00CE482C /* RunthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D11226271363BF00CE482C /* RunthroughVC.swift */; };
 		98EF6D3F26DD4EE500AFCF08 /* MyDecksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		98C7DE7126862BB400BA9B8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98C7DE7426862BB400BA9B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98C7DE7626862BB400BA9B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98D11226271363BF00CE482C /* RunthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunthroughVC.swift; sourceTree = "<group>"; };
 		98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDecksVC.swift; sourceTree = "<group>"; };
 		A80A837B0FDF9C832E303641 /* Pods-Memorius.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorius.debug.xcconfig"; path = "Target Support Files/Pods-Memorius/Pods-Memorius.debug.xcconfig"; sourceTree = "<group>"; };
 		E8407CAA0E6D06A3A361B50A /* Pods_Memorius.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memorius.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,
 				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
 				98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */,
+				98D11226271363BF00CE482C /* RunthroughVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				98BD04C726F4FDF100D3B2AB /* Flashcard.swift in Sources */,
 				98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */,
 				98EF6D3F26DD4EE500AFCF08 /* MyDecksVC.swift in Sources */,
+				98D11227271363BF00CE482C /* RunthroughVC.swift in Sources */,
 				98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */,
 				98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */,
 				985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */,
