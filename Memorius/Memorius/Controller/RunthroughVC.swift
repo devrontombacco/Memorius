@@ -15,6 +15,11 @@ class RunthroughVC: UIViewController {
     
     // MARK: -- UISTACKVIEWS
     let deckDetailsStackView = UIStackView()
+
+    // MARK: -- UIIMAGES
+    let runthroughImage = NSTextAttachment()
+    let flashcardNoImage = NSTextAttachment()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +72,20 @@ class RunthroughVC: UIViewController {
         
     }
 
-
+    func configuredeckDetailsStackViewLabelImages(){
+        
+        runthroughImage.image = UIImage(systemName: "figure.walk")
+        let deckRunthroughNoLabelFullstring = NSMutableAttributedString(string: " ")
+        deckRunthroughNoLabelFullstring.append(NSAttributedString(attachment: runthroughImage))
+        deckRunthroughNoLabelFullstring.append(NSAttributedString(string: "  Runthroughs: "))
+        deckRunthroughNoLabel.attributedText = deckRunthroughNoLabelFullstring
+        
+        flashcardNoImage.image = UIImage(systemName: "number")
+        let deckFlashcardNoLabelFullstring = NSMutableAttributedString(string: " ")
+        deckFlashcardNoLabelFullstring.append(NSAttributedString(attachment: flashcardNoImage))
+        deckFlashcardNoLabelFullstring.append(NSAttributedString(string: "  No. Flashcards: "))
+        deckFlashcardNoLabel.attributedText = deckFlashcardNoLabelFullstring
+        
+    }
 
 }
