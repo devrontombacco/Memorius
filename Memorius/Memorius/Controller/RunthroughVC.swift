@@ -155,6 +155,8 @@ class RunthroughVC: UIViewController {
     
     @objc private func didTapFliptButton() {
         print("FLIP button tapped")
+        let nextVC = ScoreVC()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func configureWrongButton(){
