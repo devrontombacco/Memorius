@@ -26,6 +26,7 @@ class RunthroughVC: UIViewController {
     
     // MARK:-- UIBUTTONS
     let flipButton = UIButton()
+    let wrongButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class RunthroughVC: UIViewController {
         view.addSubview(flashcardExerciseLabel)
         view.addSubview(runthroughProgressView)
         view.addSubview(flipButton)
+        view.addSubview(wrongButton)
         
         configureDeckLabels()
         configureDeckDetailsStackView()
@@ -45,6 +47,7 @@ class RunthroughVC: UIViewController {
         configureFlashcardExerciseLabel()
         configureRunthroughProgressView()
         configureFlipButton()
+        configureWrongButton()
     }
     
     func configureDeckLabels() {
@@ -150,4 +153,28 @@ class RunthroughVC: UIViewController {
     @objc private func didTapFliptButton() {
         print("FLIP button tapped")
     }
+    
+    func configureWrongButton(){
+        
+        wrongButton.translatesAutoresizingMaskIntoConstraints = false
+        wrongButton.topAnchor.constraint(equalTo: runthroughProgressView.bottomAnchor, constant: 70).isActive = true
+        wrongButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        wrongButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        wrongButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        wrongButton.setImage(UIImage(systemName: "x.circle"), for: .normal)
+        wrongButton.tintColor = .white
+        wrongButton.backgroundColor = .systemBlue
+        wrongButton.setTitleColor(.white, for: .normal)
+        wrongButton.layer.cornerRadius = 24
+        wrongButton.addTarget(self, action: #selector(didTapWrongButton), for: .touchUpInside)
+        
+    }
+    
+    @objc private func didTapWrongButton(){
+        print("WRONG button tapped")
+    }
 }
+
+
+// "X.circle.fill"
+// "checkmark.circle.fill"
