@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93C8AB623EA021C387A7FB2F /* Pods_Memorius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8407CAA0E6D06A3A361B50A /* Pods_Memorius.framework */; };
 		985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */; };
+		986CCB0B27175E0A00D31789 /* ScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986CCB0A27175E0A00D31789 /* ScoreVC.swift */; };
 		98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */; };
 		98BD04C726F4FDF100D3B2AB /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C626F4FDF100D3B2AB /* Flashcard.swift */; };
 		98BD04CA26F4FEAB00D3B2AB /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BD04C926F4FEAB00D3B2AB /* Deck.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0126CE9D92A0BC087B35A8ED /* Pods-Memorius.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorius.release.xcconfig"; path = "Target Support Files/Pods-Memorius/Pods-Memorius.release.xcconfig"; sourceTree = "<group>"; };
 		985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardsVC.swift; sourceTree = "<group>"; };
+		986CCB0A27175E0A00D31789 /* ScoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreVC.swift; sourceTree = "<group>"; };
 		98915E6026EB6B2E009D3601 /* MemSectionHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemSectionHeading.swift; sourceTree = "<group>"; };
 		98BD04C626F4FDF100D3B2AB /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 		98BD04C926F4FEAB00D3B2AB /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
 				98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */,
 				98D11226271363BF00CE482C /* RunthroughVC.swift */,
+				986CCB0A27175E0A00D31789 /* ScoreVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				98C7DE6926862BB300BA9B8C /* AppDelegate.swift in Sources */,
 				98EF6D3F26DD4EE500AFCF08 /* MyDecksVC.swift in Sources */,
 				98D11227271363BF00CE482C /* RunthroughVC.swift in Sources */,
+				986CCB0B27175E0A00D31789 /* ScoreVC.swift in Sources */,
 				98915E6126EB6B2E009D3601 /* MemSectionHeading.swift in Sources */,
 				98C7DE6B26862BB300BA9B8C /* SceneDelegate.swift in Sources */,
 				985F80DA26E921B800CF76A8 /* CreateFlashcardsVC.swift in Sources */,
