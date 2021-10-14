@@ -11,6 +11,7 @@ class ReviewVC: UIViewController {
 
     // MARK: UILABELS
     let frontLabel = UILabel()
+    let backLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,10 @@ class ReviewVC: UIViewController {
         self.title = "Review"
         
         view.addSubview(frontLabel)
+        view.addSubview(backLabel)
         
         configureFrontLabel()
+        configureBackLabel()
     }
     
     func configureFrontLabel(){
@@ -37,6 +40,25 @@ class ReviewVC: UIViewController {
         frontLabel.textAlignment = .left
         frontLabel.numberOfLines = 0
         frontLabel.adjustsFontSizeToFitWidth = true
+        
+    }
+    
+    func configureBackLabel(){
+        
+        backLabel.translatesAutoresizingMaskIntoConstraints = false
+        backLabel.topAnchor.constraint(equalTo: frontLabel.bottomAnchor, constant: 20).isActive = true
+        backLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        backLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        backLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        backLabel.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        backLabel.text = " answer text here"
+        backLabel.textColor = .white
+        backLabel.backgroundColor = .systemBlue
+        backLabel.font = UIFont(name: "helvetica", size: 14)
+        backLabel.textAlignment = .left
+        backLabel.numberOfLines = 0
+        backLabel.adjustsFontSizeToFitWidth = true
+        
         
     }
 
