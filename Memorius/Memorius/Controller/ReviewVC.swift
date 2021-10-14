@@ -13,6 +13,9 @@ class ReviewVC: UIViewController {
     let frontLabel = UILabel()
     let backLabel = UILabel()
     
+    // MARK:-- UIPROGRESSVIEWS
+    let reviewProgressBar = UIProgressView(progressViewStyle: .bar)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,9 +24,11 @@ class ReviewVC: UIViewController {
         
         view.addSubview(frontLabel)
         view.addSubview(backLabel)
+        view.addSubview(reviewProgressBar)
         
         configureFrontLabel()
         configureBackLabel()
+        configureProgressBar()
     }
     
     func configureFrontLabel(){
@@ -60,8 +65,20 @@ class ReviewVC: UIViewController {
         backLabel.numberOfLines = 0
         backLabel.adjustsFontSizeToFitWidth = true
         
-        
     }
 
+    func configureProgressBar(){
+        
+        reviewProgressBar.translatesAutoresizingMaskIntoConstraints = false
+        reviewProgressBar.topAnchor.constraint(equalTo: backLabel.bottomAnchor, constant: 30).isActive = true
+        reviewProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        reviewProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        reviewProgressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        reviewProgressBar.frame = CGRect(x: 10, y: 100, width: view.frame.size.width - 20, height: 50)
+        reviewProgressBar.trackTintColor = .systemGray
+        reviewProgressBar.progressTintColor = .systemBlue
+        reviewProgressBar.setProgress(0.33, animated: false)
+        
+    }
 
 }
