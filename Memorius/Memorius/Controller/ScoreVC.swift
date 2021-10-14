@@ -164,7 +164,8 @@ class ScoreVC: UIViewController {
     }
     
     @objc private func didTapReviewAnswersButton() {
-        print("Review Answers button tapped")
+        let reviewScreen = ReviewVC()
+        navigationController?.pushViewController(reviewScreen, animated: true)
     }
     
     func configureRepeatButton() {
