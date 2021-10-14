@@ -17,6 +17,7 @@ class ReviewVC: UIViewController {
         super.viewDidLoad()
         
         self.title = "Review"
+        view.backgroundColor = .white
         
         view.addSubview(frontLabel)
         view.addSubview(backLabel)
