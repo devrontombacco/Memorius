@@ -9,7 +9,12 @@ import UIKit
 
 class ReviewVC: UIViewController {
 
-    // MARK: UILABELS
+    // MARK:-- UIBUTTONS
+    let forwardButton = UIButton()
+    let backwardsButton = UIButton()
+    
+    
+    // MARK:-- UILABELS
     let frontLabel = UILabel()
     let backLabel = UILabel()
     
@@ -25,10 +30,14 @@ class ReviewVC: UIViewController {
         view.addSubview(frontLabel)
         view.addSubview(backLabel)
         view.addSubview(reviewProgressBar)
+        view.addSubview(forwardButton)
+        view.addSubview(backwardsButton)
         
         configureFrontLabel()
         configureBackLabel()
         configureProgressBar()
+        configureForwardButton()
+        configureBackwardsButton()
     }
     
     func configureFrontLabel(){
@@ -79,6 +88,45 @@ class ReviewVC: UIViewController {
         reviewProgressBar.progressTintColor = .systemBlue
         reviewProgressBar.setProgress(0.33, animated: false)
         
+    }
+    
+    func configureForwardButton() {
+        
+        forwardButton.translatesAutoresizingMaskIntoConstraints = false
+        forwardButton.topAnchor.constraint(equalTo: reviewProgressBar.bottomAnchor, constant: 70).isActive = true
+        forwardButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        forwardButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        forwardButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        forwardButton.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
+        forwardButton.tintColor = .white
+        forwardButton.backgroundColor = .systemBlue
+        forwardButton.setTitleColor(.white, for: .normal)
+        forwardButton.layer.cornerRadius = 24
+        forwardButton.addTarget(self, action: #selector(didTapForwardButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapForwardButton() {
+        print("Forward button tapped")
+    }
+    
+    
+    func configureBackwardsButton(){
+        
+        backwardsButton.translatesAutoresizingMaskIntoConstraints = false
+        backwardsButton.topAnchor.constraint(equalTo: reviewProgressBar.bottomAnchor, constant: 70).isActive = true
+        backwardsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        backwardsButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        backwardsButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        backwardsButton.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
+        backwardsButton.tintColor = .white
+        backwardsButton.backgroundColor = .systemBlue
+        backwardsButton.setTitleColor(.white, for: .normal)
+        backwardsButton.layer.cornerRadius = 24
+        backwardsButton.addTarget(self, action: #selector(didTapBackwardsButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapBackwardsButton() {
+        print("Backwards button tapped")
     }
 
 }
