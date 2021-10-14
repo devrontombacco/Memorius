@@ -12,6 +12,7 @@ class ReviewVC: UIViewController {
     // MARK:-- UIBUTTONS
     let forwardButton = UIButton()
     let backwardsButton = UIButton()
+    let doneButton = UIButton()
     
     
     // MARK:-- UILABELS
@@ -32,12 +33,14 @@ class ReviewVC: UIViewController {
         view.addSubview(reviewProgressBar)
         view.addSubview(forwardButton)
         view.addSubview(backwardsButton)
+        view.addSubview(doneButton)
         
         configureFrontLabel()
         configureBackLabel()
         configureProgressBar()
         configureForwardButton()
         configureBackwardsButton()
+        configureDoneButton()
     }
     
     func configureFrontLabel(){
@@ -128,5 +131,27 @@ class ReviewVC: UIViewController {
     @objc private func didTapBackwardsButton() {
         print("Backwards button tapped")
     }
+    
+    func configureDoneButton(){
+        
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.topAnchor.constraint(equalTo: reviewProgressBar.bottomAnchor, constant: 70).isActive = true
+        doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        doneButton.widthAnchor.constraint(equalToConstant: 148).isActive = true
+        doneButton.setTitle("DONE", for: .normal)
+        doneButton.backgroundColor = .systemBlue
+        doneButton.setTitleColor(.white, for: .normal)
+        doneButton.layer.cornerRadius = 10
+        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        doneButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        doneButton.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
+        
+    }
+    
+    @objc private func didTapDoneButton() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
 
 }
