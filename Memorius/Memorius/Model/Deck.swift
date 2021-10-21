@@ -7,14 +7,15 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class Deck {
     
-    var name: String
-    var flashcardArray: [Flashcard] = []
-    
-    init(name: String, flashcardArray: Array<Flashcard>){
+    @objc dynamic var name = ""
+    var flashcardArray = List<Flashcard>()
+    convenience init(name: String) {
+        self.init()
         self.name = name
-        self.flashcardArray = flashcardArray
     }
+    
 }
