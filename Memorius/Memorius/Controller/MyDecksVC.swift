@@ -14,7 +14,7 @@ class MyDecksVC: UIViewController {
 //    var filteredData : [String] = []
     
     var newFlashcard = Flashcard()
-    var newDeck = Deck(name: "", flashcardArray: [Flashcard]())
+    var newDeck = Deck(name: "")
     
     let realm = try! Realm()
     var realmDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
@@ -22,6 +22,9 @@ class MyDecksVC: UIViewController {
     // MARK:-- UIElements
     let decksTableView = UITableView()
     let deckSearchBar = UISearchBar()
+    
+    // DECKS
+    let biologyDeck = Deck(name: "Biology")
     
     // MARK:-- ViewDidLoad
     override func viewDidLoad() {
@@ -40,16 +43,23 @@ class MyDecksVC: UIViewController {
 //
 //        filteredData = testDeckNames
 
+        addInitialDecksToRealm()
+        
+        
         // Realm configuration
         let path = realm.configuration.fileURL?.path
         print("Path: \(String(describing: path))")
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         decksTableView.reloadData()
-        
+    }
+    
+    func addInitialDecksToRealm(){
+        try! realm.write {
+            realm.add(biologyDeck)
+        }
+
     }
     
     //MARK:-- REALM CONFIG

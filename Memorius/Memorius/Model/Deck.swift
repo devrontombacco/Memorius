@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class Deck {
+class Deck: Object {
     
     @objc dynamic var name = ""
     var flashcardArray = List<Flashcard>()

@@ -87,7 +87,7 @@ class CreateDecksVC: UIViewController {
     @objc private func createNewDeckButtonTapped() {
         print("Create New Deck Button tapped")
         if let newDeck = createNewDeckTextfield.text {
-            delegate?.createDeck(newlyCreatedDeck: Deck(name: "\(newDeck)", flashcardArray: [Flashcard]() ))
+            delegate?.createDeck(newlyCreatedDeck: Deck(name: "\(newDeck)") )
             }
         navigationController?.popViewController(animated: true)
     }
