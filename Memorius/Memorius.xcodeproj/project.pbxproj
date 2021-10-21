@@ -88,8 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				98EF6D3E26DD4EE500AFCF08 /* MyDecksVC.swift */,
-				98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */,
 				98E43EB127217EB900B50460 /* CreateDecksVC.swift */,
+				98BD9052270F5FF7005DBC50 /* DeckInfoVC.swift */,
 				985F80D926E921B800CF76A8 /* CreateFlashcardsVC.swift */,
 				98D11226271363BF00CE482C /* RunthroughVC.swift */,
 				986CCB0A27175E0A00D31789 /* ScoreVC.swift */,

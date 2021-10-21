@@ -14,6 +14,7 @@ class MyDecksVC: UIViewController {
 //    var filteredData : [String] = []
     
     var newFlashcard = Flashcard()
+    var newDeck = Deck(name: "", flashcardArray: [Flashcard]())
     
     let realm = try! Realm()
     var realmDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
@@ -84,7 +85,7 @@ class MyDecksVC: UIViewController {
 
     @objc func addNewDeck(){
         print("Add new deck button clicked")
-        let nextVC = CreateFlashcardsVC()
+        let nextVC = CreateDecksVC()
         nextVC.delegate = self
         navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -156,12 +157,24 @@ extension MyDecksVC: UISearchBarDelegate {
     }
 }
 
-extension MyDecksVC: CreateFlashcardsVCDelegate {
+extension MyDecksVC: CreateDecksVCDelegate {
     
-    func createCard(newlyCreatedFlashcard: Flashcard) {
+    func createDeck(newlyCreatedDeck: Deck) {
+
+        newDeck = newlyCreatedDeck
+        print(newDeck.name)
         
-        newFlashcard = newlyCreatedFlashcard
-        addToRealm(toAdd: newFlashcard)
+//        addToRealm(toAdd: newDeck)
+
     }
 
+//extension MyDecksVC: CreateFlashcardsVCDelegate {
+//
+//    func createCard(newlyCreatedFlashcard: Flashcard) {
+//
+//        newFlashcard = newlyCreatedFlashcard
+//        addToRealm(toAdd: newFlashcard)
+//    }
+//
+//}
 }
