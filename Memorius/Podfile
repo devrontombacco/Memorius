@@ -6,6 +6,7 @@ target 'Memorius' do
   use_frameworks!
 
   # Pods for Memorius
-  pod 'RealmSwift', '10.16.0'
+  # pod 'RealmSwift', '10.16.0'
+	pod 'RealmSwift', '~> 10.17'
 
 end
