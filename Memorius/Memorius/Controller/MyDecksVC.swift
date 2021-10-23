@@ -59,14 +59,6 @@ class MyDecksVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         decksTableView.reloadData()
     }
-
-    
-    //MARK:-- REALM CONFIG
-    func addToRealm(toAdd: Flashcard){
-        try! realm.write {
-            realm.add(newFlashcard)
-        }
-    }
     
     // MARK: UI Configuration Functions
     func configureSearchbar(){
@@ -192,11 +184,11 @@ extension MyDecksVC: CreateDecksVCDelegate {
     
     func createDeck(newlyCreatedDeck: Deck) {
 
-        newDeck = newlyCreatedDeck
-        print(newDeck.name)
+        try! realm.write {
+            realm.add(newlyCreatedDeck)
+        }
         
-//        addToRealm(toAdd: newDeck)
-
+        print("Added \(newlyCreatedDeck.name) Deck to Realm")
+        
     }
-
 }

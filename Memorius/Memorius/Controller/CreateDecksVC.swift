@@ -27,7 +27,9 @@ class CreateDecksVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = .white
+        self.title = "Add New Deck"
         view.addSubview(createNewDeckLabel)
         view.addSubview(createNewDeckTextfield)
         view.addSubview(createNewDeckButton)
@@ -43,7 +45,7 @@ class CreateDecksVC: UIViewController {
         createNewDeckLabel.text = "New Deck name"
         createNewDeckLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 43).isActive = true
         createNewDeckLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        createNewDeckLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+        createNewDeckLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         createNewDeckLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
@@ -52,7 +54,7 @@ class CreateDecksVC: UIViewController {
         
         createNewDeckTextfield.translatesAutoresizingMaskIntoConstraints = false
         createNewDeckTextfield.topAnchor.constraint(equalTo: createNewDeckLabel.bottomAnchor, constant: 30).isActive = true
-        createNewDeckTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        createNewDeckTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         createNewDeckTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         createNewDeckTextfield.heightAnchor.constraint(equalToConstant: 75).isActive = true
         createNewDeckTextfield.placeholder = "Deck name here..."
