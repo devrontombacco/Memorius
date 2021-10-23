@@ -18,6 +18,7 @@ class MyDecksVC: UIViewController {
     
     let realm = try! Realm()
     var realmDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
+    var deckDataArray = try! Realm().objects(Deck.self).sorted(byKeyPath: "name", ascending: true)
     
     // MARK:-- UIElements
     let decksTableView = UITableView()
@@ -42,8 +43,6 @@ class MyDecksVC: UIViewController {
         configureNavigationController()
 //
 //        filteredData = testDeckNamesl
-
-        addInitialDecksToRealm()
         
         
         // Realm configuration
@@ -54,13 +53,7 @@ class MyDecksVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         decksTableView.reloadData()
     }
-    
-    func addInitialDecksToRealm(){
-        try! realm.write {
-            realm.add(biologyDeck)
-        }
 
-    }
     
     //MARK:-- REALM CONFIG
     func addToRealm(toAdd: Flashcard){
@@ -107,14 +100,14 @@ extension MyDecksVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return realmDataArray.count
+        return deckDataArray.count
     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeckTableViewCell", for: indexPath)
-        cell.textLabel?.text = realmDataArray[indexPath.row].question
+        cell.textLabel?.text = deckDataArray[indexPath.row].name
         return cell
     }
     
