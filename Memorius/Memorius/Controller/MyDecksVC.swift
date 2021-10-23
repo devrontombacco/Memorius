@@ -16,15 +16,17 @@ class MyDecksVC: UIViewController {
     var newFlashcard = Flashcard()
     var newDeck = Deck(name: "")
     
-    // MARK: Realm Variables
+    // MARK:-- Realm Variables
     let realm = try! Realm()
     var flashcardDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
     var deckDataArray = try! Realm().objects(Deck.self).sorted(byKeyPath: "name", ascending: true)
     
-    // MARK:-- UIElements
-    let decksTableView = UITableView()
+    // MARK:-- UISearchBar
     let deckSearchBar = UISearchBar()
-
+    
+    //MARK:-- UITableView
+    let decksTableView = UITableView()
+    
     // MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()

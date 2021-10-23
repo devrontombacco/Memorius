@@ -9,24 +9,24 @@ import UIKit
 
 class ScoreVC: UIViewController {
     
-    // MARK:-- UILABELS
+    // MARK:-- UILabels
     let scoreLabel = UILabel()
     let lastScoreLabel = UILabel()
     let deckNameLabel = UILabel()
     let categoryLabel = UILabel()
     let runthroughsLabel = UILabel()
     
-    // MARK: --UIIMAGES
+    // MARK: --UIImages
     let lastScoreImage = NSTextAttachment()
     let deckNameImage = NSTextAttachment()
     let categoryImage = NSTextAttachment()
     let runthroughsImage = NSTextAttachment()
     
-    // MARK:-- UISTACKVIEWS()
+    // MARK:-- UIStackViews
     let runthroughStatsStackView = UIStackView()
     
     
-    // MARK: -- UIBUTTONS
+    // MARK: -- UIButtons
     let repeatButton = UIButton()
     let reviewAnswersButton = UIButton()
     

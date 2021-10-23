@@ -9,7 +9,7 @@ import UIKit
 
 class DeckInfoVC: UIViewController {
 
-    // MARK:-- UILABELS
+    // MARK:-- UILabels
     let deckDescriptionLabel      = UILabel()
     let lastScoreLabel            = UILabel()
     let deckCreatedLabel          = UILabel()
@@ -18,27 +18,27 @@ class DeckInfoVC: UIViewController {
     let lastRunthroughLabel       = UILabel()
     let noOfFlashcardsLabel       = UILabel()
     
-    // MARK:-- UITEXTVIEWS
+    // MARK:-- UITextviews
     var deckDescriptionTextView = UITextView()
     
     
-    // MARK: -- UIIMAGES
+    // MARK: -- UIImages
     let lastScoreImage = NSTextAttachment()
     let deckCreatedImage = NSTextAttachment()
     let highScoreImage = NSTextAttachment()
     let lastRunthroughImage = NSTextAttachment()
     let noOfFlashcardsImage = NSTextAttachment()
     
-    // MARK:-- ARRAYS
+    // MARK:-- Arrays
     var deckStatsArray = [UILabel]()
     
-    // MARK:-- UISTACKVIEWS
+    // MARK:-- UIStackviews
     let deckStatsStackView = UIStackView()
     
-    // MARK: UIBUTTON
+    // MARK: UIButton
     let startButton = UIButton()
     
-    //MARK:-- VIEWDIDLOAD
+    //MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,7 +61,7 @@ class DeckInfoVC: UIViewController {
         view.backgroundColor = .white
     }
     
-    // MARK:-- UI CONFIGURATION METHODS
+    // MARK:-- UI Configuration Methods
     func configureDeckDescriptionLabel() {
         
         deckDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -220,7 +220,7 @@ class DeckInfoVC: UIViewController {
 
 }
 
-// MARK:-- UITEXTVIEWDELEGATE
+// MARK:-- UITextViewDelegate
 extension DeckInfoVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {

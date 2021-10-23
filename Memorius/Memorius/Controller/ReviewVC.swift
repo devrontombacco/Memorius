@@ -9,17 +9,17 @@ import UIKit
 
 class ReviewVC: UIViewController {
 
-    // MARK:-- UIBUTTONS
+    // MARK:-- UIButtons
     let forwardButton = UIButton()
     let backwardsButton = UIButton()
     let doneButton = UIButton()
     
     
-    // MARK:-- UILABELS
+    // MARK:-- UILabels
     let frontLabel = UILabel()
     let backLabel = UILabel()
     
-    // MARK:-- UIPROGRESSVIEWS
+    // MARK:-- UIProgressViews
     let reviewProgressBar = UIProgressView(progressViewStyle: .bar)
     
     override func viewDidLoad() {

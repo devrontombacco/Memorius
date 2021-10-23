@@ -9,22 +9,22 @@ import UIKit
 
 class RunthroughVC: UIViewController {
 
-    // MARK:-- UILABELS
+    // MARK:-- UILabels
     let deckRunthroughNoLabel = UILabel()
     let deckFlashcardNoLabel = UILabel()
     let flashcardExerciseLabel = UILabel()
     
-    // MARK:-- UISTACKVIEWS
+    // MARK:-- UIStackViews
     let deckDetailsStackView = UIStackView()
 
-    // MARK:-- UIIMAGES
+    // MARK:-- UIImages
     let runthroughImage = NSTextAttachment()
     let flashcardNoImage = NSTextAttachment()
     
-    // MARK:-- UIPROGRESSVIEWS
+    // MARK:-- UIProgressViews
     let runthroughProgressView = UIProgressView(progressViewStyle: .bar)
     
-    // MARK:-- UIBUTTONS
+    // MARK:-- UIButtons
     let flipButton = UIButton()
     let wrongButton = UIButton()
     let rightButton = UIButton()
