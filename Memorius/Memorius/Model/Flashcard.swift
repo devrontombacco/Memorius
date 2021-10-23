@@ -9,8 +9,8 @@ import UIKit
 import RealmSwift
 
 class Flashcard: Object {
-    @objc dynamic var question = ""
-    @objc dynamic var answer = ""
+    @Persisted var question = ""
+    @Persisted var answer = ""
     
     convenience init(question: String, answer: String) {
         self.init()

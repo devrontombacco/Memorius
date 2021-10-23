@@ -11,8 +11,8 @@ import RealmSwift
 
 class Deck: Object {
     
-    @objc dynamic var name = ""
-    var flashcardArray = List<Flashcard>()
+    @Persisted var name = ""
+    @Persisted var flashcardArray = List<Flashcard>()
     convenience init(name: String) {
         self.init()
         self.name = name

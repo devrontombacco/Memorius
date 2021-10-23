@@ -41,7 +41,7 @@ class MyDecksVC: UIViewController {
         deckSearchBar.delegate = self
         configureNavigationController()
 //
-//        filteredData = testDeckNames
+//        filteredData = testDeckNamesl
 
         addInitialDecksToRealm()
         
