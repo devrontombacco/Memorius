@@ -184,10 +184,19 @@ extension MyDecksVC: UISearchBarDelegate {
 extension MyDecksVC: CreateDecksVCDelegate {
     
     func createDeck(newlyCreatedDeck: Deck) {
-
+        
+        deckNamesArray = []
         try! realm.write {
             realm.add(newlyCreatedDeck)
         }
+        
+        try! realm.write {
+            for deck in deckDataArray {
+                deckNamesArray.append(deck.name)
+            }
+        }
+        
+        filteredData = deckNamesArray
         print("Added \(newlyCreatedDeck.name) Deck to Realm")
     }
 }
