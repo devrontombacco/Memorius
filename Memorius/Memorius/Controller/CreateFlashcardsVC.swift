@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol CreateFlashcardsVCDelegate {
-    func createCard(newlyCreatedFlashcard: Flashcard)
+    func createCard(newlyCreatedFlashcard: Flashcard, addToDeck: Deck)
 }
 
 class CreateFlashcardsVC: UIViewController {
@@ -167,8 +167,10 @@ class CreateFlashcardsVC: UIViewController {
     
     @objc private func createButtonTapped() {
         print("Create Button tapped")
-        if let newQuestion = flashcardFrontTextfield.text, let newAnswer = flashcardBackTextfield.text {
-            delegate?.createCard(newlyCreatedFlashcard: Flashcard(question: "\(flashcardFrontTextfield.text!)", answer: "\(flashcardBackTextfield.text!)"))
+        if let newQuestion = flashcardFrontTextfield.text,
+           let newAnswer = flashcardBackTextfield.text,
+           let forDeck = addToDeckTextField.text {
+            delegate?.createCard(newlyCreatedFlashcard: Flashcard(question: "\(flashcardFrontTextfield.text!)", answer: "\(flashcardBackTextfield.text!)"), addToDeck: Deck(name: forDeck) )
         }
         navigationController?.popViewController(animated: true)
     }

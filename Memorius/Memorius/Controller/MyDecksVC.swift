@@ -36,7 +36,7 @@ class MyDecksVC: UIViewController {
         view.backgroundColor = .white
         view.addSubview(deckSearchBar)
         view.addSubview(decksTableView)
-        configureNavigationController()
+        configureBarButtonItem()
         
         // tableView setup
         decksTableView.delegate = self
@@ -69,7 +69,7 @@ class MyDecksVC: UIViewController {
         deckSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         deckSearchBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         deckSearchBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        deckSearchBar.showsCancelButton = true
+        deckSearchBar.showsCancelButton = false
         
     }
 
@@ -85,7 +85,7 @@ class MyDecksVC: UIViewController {
         
     }
     
-    func configureNavigationController(){
+    private func configureBarButtonItem(){
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDeck))
         
@@ -93,7 +93,7 @@ class MyDecksVC: UIViewController {
 
     @objc func addNewDeck(){
         
-        print("Add new deck button clicked")
+        print("Add new deck button tapped")
         let nextVC = CreateDecksVC()
         nextVC.delegate = self
         navigationController?.pushViewController(nextVC, animated: true)
@@ -105,7 +105,6 @@ class MyDecksVC: UIViewController {
         try! realm.write {
             for deck in deckDataArray {
                 deckNamesArray.append(deck.name)
-                print("deckNamesArry contains: \(deck.name)")
             }
         }
         
@@ -189,8 +188,6 @@ extension MyDecksVC: CreateDecksVCDelegate {
         try! realm.write {
             realm.add(newlyCreatedDeck)
         }
-        
         print("Added \(newlyCreatedDeck.name) Deck to Realm")
-        
     }
 }

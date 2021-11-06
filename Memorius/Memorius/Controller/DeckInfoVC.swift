@@ -6,9 +6,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DeckInfoVC: UIViewController {
-
+    
+    // MARK:-- Arrays
+    var deckStatsArray = [UILabel]()
+    
+    // MARK:-- Realm Variables
+    let realm = try! Realm()
+    var myDecks = try! Realm().objects(Deck.self).sorted(byKeyPath: "name", ascending: true)
+    
+    // MARK:-- UIButton
+    let startButton = UIButton()
+    
+    // MARK: -- UIImages
+    let lastScoreImage = NSTextAttachment()
+    let deckCreatedImage = NSTextAttachment()
+    let highScoreImage = NSTextAttachment()
+    let lastRunthroughImage = NSTextAttachment()
+    let noOfFlashcardsImage = NSTextAttachment()
+    
     // MARK:-- UILabels
     let deckDescriptionLabel      = UILabel()
     let lastScoreLabel            = UILabel()
@@ -20,28 +38,16 @@ class DeckInfoVC: UIViewController {
     
     // MARK:-- UITextviews
     var deckDescriptionTextView = UITextView()
-    
-    
-    // MARK: -- UIImages
-    let lastScoreImage = NSTextAttachment()
-    let deckCreatedImage = NSTextAttachment()
-    let highScoreImage = NSTextAttachment()
-    let lastRunthroughImage = NSTextAttachment()
-    let noOfFlashcardsImage = NSTextAttachment()
-    
-    // MARK:-- Arrays
-    var deckStatsArray = [UILabel]()
-    
+
     // MARK:-- UIStackviews
     let deckStatsStackView = UIStackView()
-    
-    // MARK: UIButton
-    let startButton = UIButton()
     
     //MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // VC setup
+        view.backgroundColor = .white
         self.title = "Deck Title here"
         
         view.addSubview(deckDescriptionLabel)
@@ -49,6 +55,7 @@ class DeckInfoVC: UIViewController {
         view.addSubview(deckStatsStackView)
         view.addSubview(startButton)
         
+        configureBarButtonItem()
         configureDeckDescriptionLabel()
         configureDeckDescriptionTextView()
         configureDeckStatsStackView()
@@ -58,10 +65,26 @@ class DeckInfoVC: UIViewController {
         
         deckDescriptionTextView.delegate = self
             
-        view.backgroundColor = .white
+        
     }
     
     // MARK:-- UI Configuration Methods
+    private func configureBarButtonItem(){
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createFlashcard))
+        
+    }
+    
+    @objc func createFlashcard(){
+        
+        print("Create New Flashcard button tapped")
+        let nextVC = CreateFlashcardsVC()
+        nextVC.delegate = self
+        navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    
+    
     func configureDeckDescriptionLabel() {
         
         deckDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -234,4 +257,41 @@ extension DeckInfoVC: UITextViewDelegate {
         super.touchesBegan(touches, with: event)
     }
     
+}
+
+extension DeckInfoVC: CreateFlashcardsVCDelegate {
+
+    func createCard(newlyCreatedFlashcard: Flashcard, addToDeck: Deck) {
+        
+        try! realm.write {
+            realm.add(newlyCreatedFlashcard)
+            addToDeck.flashcardArray.insert(newlyCreatedFlashcard, at: 0)
+//            print("Added \(newlyCreatedFlashcard) to \(addToDeck)")
+        }
+    
+}
+
+// ------------------
+//for deck in myDecks {
+//    if deck == addToDeck{
+//        try! realm.write {
+//            deck.flashcardArray.append(newlyCreatedFlashcard)
+//            print("Added \(newlyCreatedFlashcard) Flashcard to \(deck) deck")
+//            }
+//        } else {
+//            print("Error: Deck not found. Flashcard not added")
+//        }
+//    }
+// ----------------------
+
+//        if myDecks.contains(addToDeck) {
+//            let selectedDeck = addToDeck
+//            try! realm.write {
+//                selectedDeck.flashcardArray.append(newlyCreatedFlashcard)
+//                print("Added \(newlyCreatedFlashcard) Flashcard to \(selectedDeck) deck")
+//            }
+//        } else {
+//            print("Error: Deck not found. Flashcard not added")
+//        }
+// ----------------------
 }
