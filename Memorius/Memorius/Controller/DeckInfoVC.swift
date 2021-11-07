@@ -42,6 +42,9 @@ class DeckInfoVC: UIViewController {
     // MARK:-- UIStackviews
     let deckStatsStackView = UIStackView()
     
+    // MARK: -- Variables
+    var currentDeck: String = ""
+    
     //MARK:-- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,6 @@ class DeckInfoVC: UIViewController {
         
         deckDescriptionTextView.delegate = self
             
-        
     }
     
     // MARK:-- UI Configuration Methods

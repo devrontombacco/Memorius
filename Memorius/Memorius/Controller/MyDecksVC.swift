@@ -126,6 +126,7 @@ extension MyDecksVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeckTableViewCell", for: indexPath)
         cell.textLabel?.text = filteredData[indexPath.row]
         return cell
+        
     }
     
 }
@@ -136,6 +137,7 @@ extension MyDecksVC: UITableViewDelegate {
         
         decksTableView.deselectRow(at: indexPath, animated: true)
         let nextVC = DeckInfoVC()
+        nextVC.currentDeck = filteredData[indexPath.row]
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
