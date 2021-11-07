@@ -51,7 +51,7 @@ class DeckInfoVC: UIViewController {
 
         // VC setup
         view.backgroundColor = .white
-        self.title = "Deck Title here"
+        self.title = "\(currentDeck)"
         
         view.addSubview(deckDescriptionLabel)
         view.addSubview(deckDescriptionTextView)
@@ -67,7 +67,8 @@ class DeckInfoVC: UIViewController {
         configureStartButton()
         
         deckDescriptionTextView.delegate = self
-            
+        
+        setUpCurrentDeckInfo()
     }
     
     // MARK:-- UI Configuration Methods
@@ -86,6 +87,12 @@ class DeckInfoVC: UIViewController {
         
     }
     
+    func setUpCurrentDeckInfo() {
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
+    }
     
     func configureDeckDescriptionLabel() {
         
