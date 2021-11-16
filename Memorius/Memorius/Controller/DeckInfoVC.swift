@@ -92,6 +92,12 @@ class DeckInfoVC: UIViewController {
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
         
+        lastScoreLabel.text = "Last Score: \(runthroughDeck[0].lastScore)"
+        deckCreatedLabel.text = "Date Created: \(runthroughDeck[0].createdDate)"
+//        deckCategoryLabel.text = "Category: \(runthroughDeck[0].)"
+        highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
+        lastRunthroughLabel.text = "Last Run Through: \(runthroughDeck[0].lastRunthrough)"
+        noOfFlashcardsLabel.text = "No. of Flashcards: \(runthroughDeck[0].flashcardArray.count)"
     }
     
     func configureDeckDescriptionLabel() {
@@ -157,37 +163,37 @@ class DeckInfoVC: UIViewController {
     
     func configureDeckStatsStackViewLabels(){
         
-        lastScoreLabel.text = "Last Score: "
+//        lastScoreLabel.text = "Last Score: "
         lastScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         lastScoreLabel.backgroundColor = .white
         lastScoreLabel.textColor = .systemBlue
         lastScoreLabel.font = UIFont(name: "helvetica", size: 12)
         
-        deckCreatedLabel.text = "Date Created: "
+//        deckCreatedLabel.text = "Date Created: "
         deckCreatedLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         deckCreatedLabel.backgroundColor = .white
         deckCreatedLabel.textColor = .systemBlue
         deckCreatedLabel.font = UIFont(name: "helvetica", size: 12)
         
-        deckCategoryLabel.text = "Category: "
+//        deckCategoryLabel.text = "Category: "
         deckCategoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         deckCategoryLabel.backgroundColor = .white
         deckCategoryLabel.textColor = .systemBlue
         deckCategoryLabel.font = UIFont(name: "helvetica", size: 12)
         
-        highScoreLabel.text = "High Score: "
+//        highScoreLabel.text = "High Score: "
         highScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         highScoreLabel.backgroundColor = .white
         highScoreLabel.textColor = .systemBlue
         highScoreLabel.font = UIFont(name: "helvetica", size: 12)
         
-        lastRunthroughLabel.text = "Last Run Through: "
+//        lastRunthroughLabel.text = "Last Run Through: "
         lastRunthroughLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         lastRunthroughLabel.backgroundColor = .white
         lastRunthroughLabel.textColor = .systemBlue
         lastRunthroughLabel.font = UIFont(name: "helvetica", size: 12)
         
-        noOfFlashcardsLabel.text = "No. of Flashcards: "
+//        noOfFlashcardsLabel.text = "No. of Flashcards: "
         noOfFlashcardsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         noOfFlashcardsLabel.backgroundColor = .white
         noOfFlashcardsLabel.textColor = .systemBlue

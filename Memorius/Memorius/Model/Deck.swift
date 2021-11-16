@@ -16,6 +16,7 @@ class Deck: Object {
     @Persisted var lastScore: Int = 0
     @Persisted var highScore: Int = 0
     @Persisted var lastRunthrough: Date
+    @Persisted var createdDate: Date
     convenience init(name: String) {
         self.init()
         self.name = name
