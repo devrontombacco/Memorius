@@ -70,8 +70,8 @@
 		98915E5D26EB6A36009D3601 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				98BD04C626F4FDF100D3B2AB /* Flashcard.swift */,
 				98BD04C926F4FEAB00D3B2AB /* Deck.swift */,
+				98BD04C626F4FDF100D3B2AB /* Flashcard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,11 +119,11 @@
 		98C7DE6726862BB300BA9B8C /* Memorius */ = {
 			isa = PBXGroup;
 			children = (
+				98C7DE6826862BB300BA9B8C /* AppDelegate.swift */,
+				98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */,
 				98915E5D26EB6A36009D3601 /* Model */,
 				98915E5E26EB6A40009D3601 /* View */,
 				98915E5F26EB6A46009D3601 /* Controller */,
-				98C7DE6826862BB300BA9B8C /* AppDelegate.swift */,
-				98C7DE6A26862BB300BA9B8C /* SceneDelegate.swift */,
 				98C7DE7126862BB400BA9B8C /* Assets.xcassets */,
 				98C7DE7326862BB400BA9B8C /* LaunchScreen.storyboard */,
 				98C7DE7626862BB400BA9B8C /* Info.plist */,

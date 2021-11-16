@@ -13,9 +13,16 @@ class Deck: Object {
     
     @Persisted var name = ""
     @Persisted var flashcardArray = List<Flashcard>()
+    @Persisted var lastScore: Int = 0
+    @Persisted var highScore: Int = 0
+    @Persisted var lastRunthrough: Date
     convenience init(name: String) {
         self.init()
         self.name = name
+        self.flashcardArray = flashcardArray
+        self.lastScore = lastScore
+        self.highScore = highScore
+        self.lastRunthrough = lastRunthrough
     }
     
 }

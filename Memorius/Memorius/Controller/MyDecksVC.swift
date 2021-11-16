@@ -17,7 +17,10 @@ class MyDecksVC: UIViewController {
     var newDeck = Deck(name: "")
     
     // MARK:-- Realm Variables
-    let realm = try! Realm()
+    lazy var realm: Realm = {
+        return try! Realm()
+    }()
+    
     var flashcardDataArray = try! Realm().objects(Flashcard.self).sorted(byKeyPath: "question", ascending: true)
     var deckDataArray = try! Realm().objects(Deck.self).sorted(byKeyPath: "name", ascending: true)
     
