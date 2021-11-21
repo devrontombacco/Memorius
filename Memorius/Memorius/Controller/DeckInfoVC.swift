@@ -94,7 +94,6 @@ class DeckInfoVC: UIViewController {
         
         lastScoreLabel.text = "Last Score: \(runthroughDeck[0].lastScore)"
         deckCreatedLabel.text = "Date Created: \(runthroughDeck[0].createdDate)"
-//        deckCategoryLabel.text = "Category: \(runthroughDeck[0].)"
         highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
         lastRunthroughLabel.text = "Last Run Through: \(runthroughDeck[0].lastRunthrough)"
         noOfFlashcardsLabel.text = "No. of Flashcards: \(runthroughDeck[0].flashcardArray.count)"
