@@ -98,6 +98,7 @@ class DeckInfoVC: UIViewController {
         highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
         lastRunthroughLabel.text = "Last Run Through: \(runthroughDeck[0].lastRunthrough)"
         noOfFlashcardsLabel.text = "No. of Flashcards: \(runthroughDeck[0].flashcardArray.count)"
+        deckDescriptionTextView.text = "\(runthroughDeck[0].deckDescription)"
     }
     
     func configureDeckDescriptionLabel() {
@@ -262,10 +263,20 @@ extension DeckInfoVC: UITextViewDelegate {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
+            view.endEditing(true)
+            super.touchesBegan(touches, with: event)
+        
+        if let updatedDescription = deckDescriptionTextView.text {
+            
+            let decks = realm.objects(Deck.self)
+            let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+                try! realm.write {
+                    runthroughDeck[0].deckDescription = updatedDescription
+                }
+            deckDescriptionTextView.text = "\(runthroughDeck[0].deckDescription)"
+        }
+            print("User has ended editing textview")
     }
-    
 }
 
 extension DeckInfoVC: CreateFlashcardsVCDelegate {

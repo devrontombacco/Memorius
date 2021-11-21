@@ -17,7 +17,7 @@ class Deck: Object {
     @Persisted var highScore: Int = 0
     @Persisted var lastRunthrough: Date
     @Persisted var createdDate: Date
-    @Persisted var deckDescription: String = ""
+    @Persisted var deckDescription: String = "Enter description here"
     convenience init(name: String) {
         self.init()
         self.name = name
