@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RunthroughVC: UIViewController {
 
+    // MARK:-- Realm Variables
+    lazy var realm: Realm = {
+        return try! Realm()
+    }()
+    
     // MARK:-- UILabels
     let deckRunthroughNoLabel = UILabel()
     let deckFlashcardNoLabel = UILabel()
