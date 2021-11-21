@@ -163,37 +163,31 @@ class DeckInfoVC: UIViewController {
     
     func configureDeckStatsStackViewLabels(){
         
-//        lastScoreLabel.text = "Last Score: "
         lastScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         lastScoreLabel.backgroundColor = .white
         lastScoreLabel.textColor = .systemBlue
         lastScoreLabel.font = UIFont(name: "helvetica", size: 12)
         
-//        deckCreatedLabel.text = "Date Created: "
         deckCreatedLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         deckCreatedLabel.backgroundColor = .white
         deckCreatedLabel.textColor = .systemBlue
         deckCreatedLabel.font = UIFont(name: "helvetica", size: 12)
         
-//        deckCategoryLabel.text = "Category: "
         deckCategoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         deckCategoryLabel.backgroundColor = .white
         deckCategoryLabel.textColor = .systemBlue
         deckCategoryLabel.font = UIFont(name: "helvetica", size: 12)
         
-//        highScoreLabel.text = "High Score: "
         highScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         highScoreLabel.backgroundColor = .white
         highScoreLabel.textColor = .systemBlue
         highScoreLabel.font = UIFont(name: "helvetica", size: 12)
         
-//        lastRunthroughLabel.text = "Last Run Through: "
         lastRunthroughLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         lastRunthroughLabel.backgroundColor = .white
         lastRunthroughLabel.textColor = .systemBlue
         lastRunthroughLabel.font = UIFont(name: "helvetica", size: 12)
         
-//        noOfFlashcardsLabel.text = "No. of Flashcards: "
         noOfFlashcardsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         noOfFlashcardsLabel.backgroundColor = .white
         noOfFlashcardsLabel.textColor = .systemBlue
@@ -281,32 +275,8 @@ extension DeckInfoVC: CreateFlashcardsVCDelegate {
         try! realm.write {
             realm.add(newlyCreatedFlashcard)
             addToDeck.flashcardArray.insert(newlyCreatedFlashcard, at: 0)
-//            print("Added \(newlyCreatedFlashcard) to \(addToDeck)")
         }
+        
+    }
     
-}
-
-// ------------------
-//for deck in myDecks {
-//    if deck == addToDeck{
-//        try! realm.write {
-//            deck.flashcardArray.append(newlyCreatedFlashcard)
-//            print("Added \(newlyCreatedFlashcard) Flashcard to \(deck) deck")
-//            }
-//        } else {
-//            print("Error: Deck not found. Flashcard not added")
-//        }
-//    }
-// ----------------------
-
-//        if myDecks.contains(addToDeck) {
-//            let selectedDeck = addToDeck
-//            try! realm.write {
-//                selectedDeck.flashcardArray.append(newlyCreatedFlashcard)
-//                print("Added \(newlyCreatedFlashcard) Flashcard to \(selectedDeck) deck")
-//            }
-//        } else {
-//            print("Error: Deck not found. Flashcard not added")
-//        }
-// ----------------------
 }
