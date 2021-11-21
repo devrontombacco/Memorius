@@ -105,6 +105,12 @@ class RunthroughVC: UIViewController {
 
     func configuredeckDetailsStackViewLabelImages(){
         
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+
+        runthroughNo = runthroughDeck[0].noOfRunthroughs
+        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
+        
         runthroughImage.image = UIImage(systemName: "figure.walk")
         let deckRunthroughNoLabelFullstring = NSMutableAttributedString(string: " ")
         deckRunthroughNoLabelFullstring.append(NSAttributedString(attachment: runthroughImage))
@@ -124,9 +130,8 @@ class RunthroughVC: UIViewController {
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
 
-//        currentDeck = "\(runthroughDeck[0].name)"
-//        runthroughNo = runthroughDeck[0].noOfRunthroughs
-//        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
+        runthroughNo = runthroughDeck[0].noOfRunthroughs
+        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
 
     }
     
