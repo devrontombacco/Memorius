@@ -62,7 +62,7 @@ class RunthroughVC: UIViewController {
         configureFlipButton()
         configureWrongButton()
         configureRightButton()
-        setUpCurrentDeckInfo()
+
     }
     
     func configureDeckLabels() {
@@ -123,16 +123,6 @@ class RunthroughVC: UIViewController {
         deckFlashcardNoLabelFullstring.append(NSAttributedString(string: "  No. Flashcards: \(deckFlashcardNo)"))
         deckFlashcardNoLabel.attributedText = deckFlashcardNoLabelFullstring
         
-    }
-    
-    func setUpCurrentDeckInfo() {
-        
-        let decks = realm.objects(Deck.self)
-        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-
-        runthroughNo = runthroughDeck[0].noOfRunthroughs
-        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
-
     }
     
     func configureFlashcardExerciseLabel(){
