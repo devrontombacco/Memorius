@@ -35,6 +35,10 @@ class RunthroughVC: UIViewController {
     let wrongButton = UIButton()
     let rightButton = UIButton()
     
+    // MARK:-- VARIABLES
+    var runthroughNo: Int = 0
+    var deckFlashcardNo: Int = 0 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -57,6 +61,7 @@ class RunthroughVC: UIViewController {
         configureFlipButton()
         configureWrongButton()
         configureRightButton()
+        setUpCurrentDeckInfo()
     }
     
     func configureDeckLabels() {
@@ -111,6 +116,19 @@ class RunthroughVC: UIViewController {
         deckFlashcardNoLabelFullstring.append(NSAttributedString(string: "  No. Flashcards: "))
         deckFlashcardNoLabel.attributedText = deckFlashcardNoLabelFullstring
         
+    }
+    
+    func setUpCurrentDeckInfo() {
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
+        lastScoreLabel.text = "Last Score: \(runthroughDeck[0].lastScore)"
+        deckCreatedLabel.text = "Date Created: \(runthroughDeck[0].createdDate)"
+        highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
+        lastRunthroughLabel.text = "Last Run Through: \(runthroughDeck[0].lastRunthrough)"
+        noOfFlashcardsLabel.text = "No. of Flashcards: \(runthroughDeck[0].flashcardArray.count)"
+        deckDescriptionTextView.text = "\(runthroughDeck[0].deckDescription)"
     }
     
     func configureFlashcardExerciseLabel(){
