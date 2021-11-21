@@ -37,7 +37,8 @@ class RunthroughVC: UIViewController {
     
     // MARK:-- VARIABLES
     var runthroughNo: Int = 0
-    var deckFlashcardNo: Int = 0 
+    var deckFlashcardNo: Int = 0
+    var currentDeck: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,13 +108,13 @@ class RunthroughVC: UIViewController {
         runthroughImage.image = UIImage(systemName: "figure.walk")
         let deckRunthroughNoLabelFullstring = NSMutableAttributedString(string: " ")
         deckRunthroughNoLabelFullstring.append(NSAttributedString(attachment: runthroughImage))
-        deckRunthroughNoLabelFullstring.append(NSAttributedString(string: "  Runthroughs: "))
+        deckRunthroughNoLabelFullstring.append(NSAttributedString(string: "  Runthroughs: \(runthroughNo)"))
         deckRunthroughNoLabel.attributedText = deckRunthroughNoLabelFullstring
         
         flashcardNoImage.image = UIImage(systemName: "number")
         let deckFlashcardNoLabelFullstring = NSMutableAttributedString(string: " ")
         deckFlashcardNoLabelFullstring.append(NSAttributedString(attachment: flashcardNoImage))
-        deckFlashcardNoLabelFullstring.append(NSAttributedString(string: "  No. Flashcards: "))
+        deckFlashcardNoLabelFullstring.append(NSAttributedString(string: "  No. Flashcards: \(deckFlashcardNo)"))
         deckFlashcardNoLabel.attributedText = deckFlashcardNoLabelFullstring
         
     }
@@ -122,13 +123,10 @@ class RunthroughVC: UIViewController {
         
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        
-        lastScoreLabel.text = "Last Score: \(runthroughDeck[0].lastScore)"
-        deckCreatedLabel.text = "Date Created: \(runthroughDeck[0].createdDate)"
-        highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
-        lastRunthroughLabel.text = "Last Run Through: \(runthroughDeck[0].lastRunthrough)"
-        noOfFlashcardsLabel.text = "No. of Flashcards: \(runthroughDeck[0].flashcardArray.count)"
-        deckDescriptionTextView.text = "\(runthroughDeck[0].deckDescription)"
+        self.title = "Last Score: \(runthroughDeck[0].name)"
+        runthroughNo = runthroughDeck[0].noOfRunthroughs
+        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
+
     }
     
     func configureFlashcardExerciseLabel(){
@@ -174,10 +172,10 @@ class RunthroughVC: UIViewController {
         flipButton.layer.cornerRadius = 10
         flipButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         flipButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flipButton.addTarget(self, action: #selector(didTapFliptButton), for: .touchUpInside)
+        flipButton.addTarget(self, action: #selector(didTapFlipButton), for: .touchUpInside)
     }
     
-    @objc private func didTapFliptButton() {
+    @objc private func didTapFlipButton() {
         print("FLIP button tapped")
         let nextVC = ScoreVC()
         navigationController?.pushViewController(nextVC, animated: true)
