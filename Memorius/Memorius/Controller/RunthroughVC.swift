@@ -43,7 +43,7 @@ class RunthroughVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Runthrough: (Deck Name Here)"
+        self.title = "Runthrough: \(currentDeck)"
         
         view.addSubview(deckDetailsStackView)
         view.addSubview(deckRunthroughNoLabel)
@@ -123,9 +123,10 @@ class RunthroughVC: UIViewController {
         
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        self.title = "Last Score: \(runthroughDeck[0].name)"
-        runthroughNo = runthroughDeck[0].noOfRunthroughs
-        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
+
+//        currentDeck = "\(runthroughDeck[0].name)"
+//        runthroughNo = runthroughDeck[0].noOfRunthroughs
+//        deckFlashcardNo = runthroughDeck[0].flashcardArray.count
 
     }
     

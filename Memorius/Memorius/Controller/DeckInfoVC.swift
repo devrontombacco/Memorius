@@ -247,7 +247,9 @@ class DeckInfoVC: UIViewController {
     
     @objc private func didTapStartButton() {
         let nextVC = RunthroughVC()
+        nextVC.currentDeck = currentDeck
         navigationController?.pushViewController(nextVC, animated: true)
+        print("User tapped Start button")
     }
 
 }
