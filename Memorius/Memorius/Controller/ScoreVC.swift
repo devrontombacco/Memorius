@@ -25,6 +25,8 @@ class ScoreVC: UIViewController {
     // MARK:-- UIStackViews
     let runthroughStatsStackView = UIStackView()
     
+    // MARK:-- VARIABLES
+    var currentDeck: String = ""
     
     // MARK: -- UIButtons
     let repeatButton = UIButton()
@@ -128,7 +130,7 @@ class ScoreVC: UIViewController {
         lastScoreImage.image = UIImage(systemName: "folder.fill")
         let categoryImageFullstring = NSMutableAttributedString(string: " ")
         categoryImageFullstring.append(NSAttributedString(attachment: lastScoreImage))
-        categoryImageFullstring.append(NSAttributedString(string: "  Category:"))
+        categoryImageFullstring.append(NSAttributedString(string: "  Last Score:"))
         lastScoreLabel.attributedText = categoryImageFullstring
         
         deckNameImage.image = UIImage(systemName: "calendar")
