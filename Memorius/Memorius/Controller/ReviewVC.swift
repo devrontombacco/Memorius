@@ -33,10 +33,7 @@ class ReviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.title = "Review"
         view.backgroundColor = .white
-        
         view.addSubview(frontLabel)
         view.addSubview(backLabel)
         view.addSubview(reviewProgressBar)
@@ -45,7 +42,6 @@ class ReviewVC: UIViewController {
         view.addSubview(doneButton)
         
         configureReviewVCTitle()
-        
         configureFrontLabel()
         configureBackLabel()
         configureProgressBar()
@@ -59,7 +55,6 @@ class ReviewVC: UIViewController {
         
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        
         let wrongCards = runthroughDeck[0].flashcardArray.count - runthroughDeck[0].lastScore
         self.title = "Review: \(wrongCards) incorrect flashcards"
         
