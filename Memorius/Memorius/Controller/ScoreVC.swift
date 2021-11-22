@@ -174,6 +174,7 @@ class ScoreVC: UIViewController {
     
     @objc private func didTapReviewAnswersButton() {
         let reviewScreen = ReviewVC()
+        reviewScreen.currentDeck = currentDeck
         navigationController?.pushViewController(reviewScreen, animated: true)
     }
     
