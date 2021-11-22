@@ -63,7 +63,7 @@ class RunthroughVC: UIViewController {
         configureFlipButton()
         configureWrongButton()
         configureRightButton()
-
+        startRunthrough()
     }
     
     func configureDeckLabels() {
@@ -218,6 +218,13 @@ class RunthroughVC: UIViewController {
         print("RIGHT button tapped")
     }
 
+    func startRunthrough(){
+
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        flashcardExerciseLabel.text = "\(runthroughDeck[count].flashcardArray[count].question)"
+        
+    }
     
     
 }
