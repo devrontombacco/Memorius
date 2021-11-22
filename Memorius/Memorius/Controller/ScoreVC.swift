@@ -55,6 +55,7 @@ class ScoreVC: UIViewController {
         configureRunthroughStackViewLabelImages()
         configureReviewAnswersButton()
         configureRepeatButton()
+        setupScoreVCInfo()
     }
     
     func configureScoreLabel(){
@@ -195,6 +196,18 @@ class ScoreVC: UIViewController {
     
     @objc private func didTapRepeatButton() {
         print("Repeat button tapped")
+    }
+    
+    func setupScoreVCInfo() {
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
+        scoreLabel.text = "\(runthroughDeck[0].lastScore) / \(runthroughDeck[0].flashcardArray.count)"
+        highScoreLabel.text = "High Score: \(runthroughDeck[0].highScore)"
+        deckNameLabel.text = "Deck: \(runthroughDeck[0].name)"
+        lastScoreLabel.text = "Last Score: \(runthroughDeck[0].lastScore)"
+        runthroughsLabel.text = "No. of runthroughs: \(runthroughDeck[0].noOfRunthroughs)"
     }
     
 }
