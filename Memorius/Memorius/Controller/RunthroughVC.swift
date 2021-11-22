@@ -39,6 +39,7 @@ class RunthroughVC: UIViewController {
     var runthroughNo: Int = 0
     var deckFlashcardNo: Int = 0
     var currentDeck: String = ""
+    var count: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,5 +217,7 @@ class RunthroughVC: UIViewController {
     @objc private func didTapRightButton(){
         print("RIGHT button tapped")
     }
+
+    
     
 }
