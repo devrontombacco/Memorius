@@ -40,6 +40,7 @@ class RunthroughVC: UIViewController {
     var deckFlashcardNo: Int = 0
     var currentDeck: String = ""
     var count: Int = 0
+    var currentScore: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -253,3 +254,6 @@ class RunthroughVC: UIViewController {
     
     
 }
+
+
+
