@@ -216,6 +216,7 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapRightButton(){
+        increaseScore()
         increaseCountAndShowNextQstn()
         print("RIGHT button tapped")
     }
@@ -236,6 +237,10 @@ class RunthroughVC: UIViewController {
         
     }
     
+    func increaseScore(){
+        currentScore += 1
+    }
+    
     func increaseCountAndShowNextQstn(){
         
         let decks = realm.objects(Deck.self)
@@ -246,12 +251,27 @@ class RunthroughVC: UIViewController {
         if count < runthroughDeck[0].flashcardArray.count {
             startRunthrough()
         } else {
+            
+            // calculate last score
+            try! realm.write {
+                runthroughDeck[0].lastScore = currentScore
+            }
+            
+            // calculate high score
+            if currentScore > runthroughDeck[0].highScore {
+                try! realm.write {
+                    runthroughDeck[0].highScore = currentScore
+                }
+            }
+
             let nextVC = ScoreVC()
             navigationController?.pushViewController(nextVC, animated: true)
         }
         
     }
-    
+
+        
+
     
 }
 
