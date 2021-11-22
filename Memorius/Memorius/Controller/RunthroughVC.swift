@@ -236,9 +236,19 @@ class RunthroughVC: UIViewController {
     }
     
     func increaseCountAndShowNextQstn(){
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
         count += 1
         print("The count is \(count)")
-        startRunthrough()
+        if count < runthroughDeck[0].flashcardArray.count {
+            startRunthrough()
+        } else {
+            let nextVC = ScoreVC()
+            navigationController?.pushViewController(nextVC, animated: true)
+        }
+        
     }
     
     
