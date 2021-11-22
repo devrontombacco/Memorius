@@ -11,15 +11,15 @@ class ScoreVC: UIViewController {
     
     // MARK:-- UILabels
     let scoreLabel = UILabel()
-    let lastScoreLabel = UILabel()
+    let highScoreLabel = UILabel()
     let deckNameLabel = UILabel()
-    let categoryLabel = UILabel()
+    let lastScoreLabel = UILabel()
     let runthroughsLabel = UILabel()
     
     // MARK: --UIImages
-    let lastScoreImage = NSTextAttachment()
+    let highScoreImage = NSTextAttachment()
     let deckNameImage = NSTextAttachment()
-    let categoryImage = NSTextAttachment()
+    let lastScoreImage = NSTextAttachment()
     let runthroughsImage = NSTextAttachment()
     
     // MARK:-- UIStackViews
@@ -68,12 +68,12 @@ class ScoreVC: UIViewController {
     
     func configureStackViewLabels(){
         
-        lastScoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        lastScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        lastScoreLabel.textColor = .systemBlue
-        lastScoreLabel.backgroundColor = .white
-        lastScoreLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
-        lastScoreLabel.textAlignment = .left
+        highScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        highScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        highScoreLabel.textColor = .systemBlue
+        highScoreLabel.backgroundColor = .white
+        highScoreLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        highScoreLabel.textAlignment = .left
         
         deckNameLabel.translatesAutoresizingMaskIntoConstraints = false
         deckNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -82,12 +82,12 @@ class ScoreVC: UIViewController {
         deckNameLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
         deckNameLabel.textAlignment = .left
         
-        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        categoryLabel.textColor = .systemBlue
-        categoryLabel.backgroundColor = .white
-        categoryLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
-        categoryLabel.textAlignment = .left
+        lastScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        lastScoreLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        lastScoreLabel.textColor = .systemBlue
+        lastScoreLabel.backgroundColor = .white
+        lastScoreLabel.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        lastScoreLabel.textAlignment = .left
         
         runthroughsLabel.translatesAutoresizingMaskIntoConstraints = false
         runthroughsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -103,9 +103,9 @@ class ScoreVC: UIViewController {
         runthroughStatsStackView.translatesAutoresizingMaskIntoConstraints = false
         runthroughStatsStackView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 40).isActive = true
         runthroughStatsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        runthroughStatsStackView.addArrangedSubview(lastScoreLabel)
+        runthroughStatsStackView.addArrangedSubview(highScoreLabel)
         runthroughStatsStackView.addArrangedSubview(deckNameLabel)
-        runthroughStatsStackView.addArrangedSubview(categoryLabel)
+        runthroughStatsStackView.addArrangedSubview(lastScoreLabel)
         runthroughStatsStackView.addArrangedSubview(runthroughsLabel)
         runthroughStatsStackView.backgroundColor = .systemGray
        
@@ -119,23 +119,23 @@ class ScoreVC: UIViewController {
     
     func configureRunthroughStackViewLabelImages(){
         
-        lastScoreImage.image = UIImage(systemName: "chart.bar.fill")
+        highScoreImage.image = UIImage(systemName: "chart.bar.fill")
         let lastScoreLabelFullstring = NSMutableAttributedString(string: " ")
-        lastScoreLabelFullstring.append(NSAttributedString(attachment: lastScoreImage))
+        lastScoreLabelFullstring.append(NSAttributedString(attachment: highScoreImage))
         lastScoreLabelFullstring.append(NSAttributedString(string: "  High score: "))
-        lastScoreLabel.attributedText = lastScoreLabelFullstring
+        highScoreLabel.attributedText = lastScoreLabelFullstring
+        
+        lastScoreImage.image = UIImage(systemName: "folder.fill")
+        let categoryImageFullstring = NSMutableAttributedString(string: " ")
+        categoryImageFullstring.append(NSAttributedString(attachment: lastScoreImage))
+        categoryImageFullstring.append(NSAttributedString(string: "  Category:"))
+        lastScoreLabel.attributedText = categoryImageFullstring
         
         deckNameImage.image = UIImage(systemName: "calendar")
         let deckNameImageFullstring = NSMutableAttributedString(string: " ")
         deckNameImageFullstring.append(NSAttributedString(attachment: deckNameImage))
         deckNameImageFullstring.append(NSAttributedString(string: "  Deck Name: "))
         deckNameLabel.attributedText = deckNameImageFullstring
-        
-        categoryImage.image = UIImage(systemName: "folder.fill")
-        let categoryImageFullstring = NSMutableAttributedString(string: " ")
-        categoryImageFullstring.append(NSAttributedString(attachment: categoryImage))
-        categoryImageFullstring.append(NSAttributedString(string: "  Category:"))
-        categoryLabel.attributedText = categoryImageFullstring
         
         runthroughsImage.image = UIImage(systemName: "clock.arrow.2.circlepath")
         let runthroughsImageFullstring = NSMutableAttributedString(string: " ")
