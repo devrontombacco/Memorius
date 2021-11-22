@@ -265,6 +265,7 @@ class RunthroughVC: UIViewController {
             }
 
             let nextVC = ScoreVC()
+            nextVC.currentDeck = currentDeck
             navigationController?.pushViewController(nextVC, animated: true)
         }
         
