@@ -28,6 +28,9 @@ class ReviewVC: UIViewController {
     // MARK:-- UIProgressViews
     let reviewProgressBar = UIProgressView(progressViewStyle: .bar)
     
+    // MARK:-- VARIABLES
+    var currentDeck: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
