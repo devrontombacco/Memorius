@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ReviewVC: UIViewController {
 
+    // MARK:-- Realm Variables
+    lazy var realm: Realm = {
+        return try! Realm()
+    }()
+    
     // MARK:-- UIButtons
     let forwardButton = UIButton()
     let backwardsButton = UIButton()
