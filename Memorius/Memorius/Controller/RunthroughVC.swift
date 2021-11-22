@@ -41,7 +41,7 @@ class RunthroughVC: UIViewController {
     var currentDeck: String = ""
     var count: Int = 0
     var currentScore: Int = 0
-    var wrongAnswers: [Flashcard] = []
+    var wrongAnswers: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,6 +198,7 @@ class RunthroughVC: UIViewController {
     @objc private func didTapWrongButton(){
         increaseCountAndShowNextQstn()
         print("WRONG button tapped")
+
     }
     
     func configureRightButton(){
@@ -271,8 +272,6 @@ class RunthroughVC: UIViewController {
         }
         
     }
-
-        
 
     
 }
