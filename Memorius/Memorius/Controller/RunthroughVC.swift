@@ -198,7 +198,8 @@ class RunthroughVC: UIViewController {
     @objc private func didTapWrongButton(){
         increaseCountAndShowNextQstn()
         print("WRONG button tapped")
-
+        print("Adding flashcard to wrongAnswers array")
+        wrongAnswers.append(count)
     }
     
     func configureRightButton(){
