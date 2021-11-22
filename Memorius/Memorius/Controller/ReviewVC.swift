@@ -30,6 +30,7 @@ class ReviewVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
+    var wrongAnswers: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

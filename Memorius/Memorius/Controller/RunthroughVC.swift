@@ -269,6 +269,7 @@ class RunthroughVC: UIViewController {
 
             let nextVC = ScoreVC()
             nextVC.currentDeck = currentDeck
+            nextVC.wrongAnswers = wrongAnswers
             navigationController?.pushViewController(nextVC, animated: true)
         }
         
