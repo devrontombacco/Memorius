@@ -173,9 +173,8 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapFlipButton() {
+        flipButtonTapped()
         print("FLIP button tapped")
-        let nextVC = ScoreVC()
-        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func configureWrongButton(){
@@ -195,6 +194,7 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapWrongButton(){
+        increaseCountAndShowNextQstn()
         print("WRONG button tapped")
     }
     
@@ -215,6 +215,7 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapRightButton(){
+        increaseCountAndShowNextQstn()
         print("RIGHT button tapped")
     }
 
@@ -222,8 +223,22 @@ class RunthroughVC: UIViewController {
 
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        flashcardExerciseLabel.text = "\(runthroughDeck[count].flashcardArray[count].question)"
+        flashcardExerciseLabel.text = "\(runthroughDeck[0].flashcardArray[count].question)"
         
+    }
+    
+    func flipButtonTapped(){
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        flashcardExerciseLabel.text = "\(runthroughDeck[0].flashcardArray[count].answer)"
+        
+    }
+    
+    func increaseCountAndShowNextQstn(){
+        count += 1
+        print("The count is \(count)")
+        startRunthrough()
     }
     
     
