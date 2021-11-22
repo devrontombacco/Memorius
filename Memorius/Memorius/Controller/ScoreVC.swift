@@ -122,7 +122,7 @@ class ScoreVC: UIViewController {
         lastScoreImage.image = UIImage(systemName: "chart.bar.fill")
         let lastScoreLabelFullstring = NSMutableAttributedString(string: " ")
         lastScoreLabelFullstring.append(NSAttributedString(attachment: lastScoreImage))
-        lastScoreLabelFullstring.append(NSAttributedString(string: "  Last score: "))
+        lastScoreLabelFullstring.append(NSAttributedString(string: "  High score: "))
         lastScoreLabel.attributedText = lastScoreLabelFullstring
         
         deckNameImage.image = UIImage(systemName: "calendar")
