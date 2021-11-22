@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ScoreVC: UIViewController {
+    
+    // MARK:-- Realm Variables
+    lazy var realm: Realm = {
+        return try! Realm()
+    }()
     
     // MARK:-- UILabels
     let scoreLabel = UILabel()
