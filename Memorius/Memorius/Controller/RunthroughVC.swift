@@ -41,7 +41,7 @@ class RunthroughVC: UIViewController {
     var currentDeck: String = ""
     var count: Int = 0
     var currentScore: Int = 0
-    var wrongAnswers: [Int] = []
+    var wrongAnswers: [UUID] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,10 +196,11 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapWrongButton(){
+
         increaseCountAndShowNextQstn()
         print("WRONG button tapped")
         print("Adding flashcard to wrongAnswers array")
-        wrongAnswers.append(count)
+
     }
     
     func configureRightButton(){
