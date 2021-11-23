@@ -33,7 +33,7 @@ class ScoreVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
-    var wrongAnswers: [Int] = []
+    var wrongAnswers: [UUID] = []
     
     // MARK: -- UIButtons
     let repeatButton = UIButton()
@@ -177,6 +177,7 @@ class ScoreVC: UIViewController {
         let reviewScreen = ReviewVC()
         reviewScreen.currentDeck = currentDeck
         reviewScreen.wrongAnswers = wrongAnswers
+        reviewScreen.currentDeck = currentDeck
         navigationController?.pushViewController(reviewScreen, animated: true)
     }
     
