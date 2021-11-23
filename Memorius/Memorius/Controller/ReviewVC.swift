@@ -30,7 +30,7 @@ class ReviewVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
-    var wrongAnswers: [Int] = []
+    var wrongAnswers: [UUID] = []
     var wrongAnswersCount = 0
     
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ class ReviewVC: UIViewController {
         configureForwardButton()
         configureBackwardsButton()
         configureDoneButton()
-        
+        showNextWrongAnswer()
     }
     
     func configureReviewVCTitle(){
@@ -172,6 +172,23 @@ class ReviewVC: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-
+    func showNextWrongAnswer(){
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
+        print("WrongAnswersCount = \(wrongAnswersCount)")
+        print("WrongAnswers Array contains: \(wrongAnswers)")
+        
+//        print(runthroughDeck[0].flashcardArray[wrongAnswersCount].question)
+//        print(runthroughDeck[0].flashcardArray[wrongAnswersCount].answer)
+        
+//        if wrongAnswersCount >= wrongAnswers.count {
+//            wrongAnswersCount += 1
+//            frontLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].question)"
+//            backLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].answer)"
+//        }
+        
+    }
 
 }
