@@ -41,7 +41,7 @@ class RunthroughVC: UIViewController {
     var currentDeck: String = ""
     var count: Int = 0
     var currentScore: Int = 0
-    var wrongAnswers: [UUID] = []
+    var wrongAnswers: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -205,6 +205,7 @@ class RunthroughVC: UIViewController {
         
         let uuidToAppend = runthroughDeck[0].flashcardArray[count].uuid
         wrongAnswers.append(uuidToAppend)
+        print("The uuid just added was \(wrongAnswers[0])")
         
         increaseCountAndShowNextQstn()
 
@@ -277,7 +278,7 @@ class RunthroughVC: UIViewController {
 
             let nextVC = ScoreVC()
             nextVC.currentDeck = currentDeck
-            nextVC.wrongAnswers = wrongAnswers
+//            nextVC.wrongAnswers = wrongAnswers
             navigationController?.pushViewController(nextVC, animated: true)
         }
         
