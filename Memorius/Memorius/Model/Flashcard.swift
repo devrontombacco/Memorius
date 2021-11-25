@@ -19,5 +19,10 @@ class Flashcard: Object {
         self.answer = answer
         self.uuid = uuid
     }
+    
+    override static func primaryKey() -> String? {
+        return "uuid"
+      }
+    
 }
 
