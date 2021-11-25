@@ -177,7 +177,6 @@ class ScoreVC: UIViewController {
         let reviewScreen = ReviewVC()
         reviewScreen.currentDeck = currentDeck
         reviewScreen.wrongAnswers = wrongAnswers
-        reviewScreen.wrongAnswersCount = wrongAnswers.count
         reviewScreen.currentDeck = currentDeck
         navigationController?.pushViewController(reviewScreen, animated: true)
     }
