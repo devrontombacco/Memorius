@@ -30,7 +30,7 @@ class ReviewVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
-    var wrongAnswers: [UUID] = []
+    var wrongAnswers: [String] = []
     var wrongAnswersCount = 0
     
     override func viewDidLoad() {
@@ -129,6 +129,7 @@ class ReviewVC: UIViewController {
     
     @objc private func didTapForwardButton() {
         print("Forward button tapped")
+        showNextWrongAnswer()
     }
     
     
@@ -174,17 +175,28 @@ class ReviewVC: UIViewController {
     
     func showNextWrongAnswer(){
         
-        let decks = realm.objects(Deck.self)
-        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        print("There are \(wrongAnswers.count) answers")
+        print("One of the wrong answers has a uuid of \(wrongAnswers[0])")
         
-        print("WrongAnswersCount = \(wrongAnswersCount)")
-        print("WrongAnswers Array contains: \(wrongAnswers)")
+//        let decks = realm.objects(Deck.self)
+//        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
         
-//        print(runthroughDeck[0].flashcardArray[wrongAnswersCount].question)
-//        print(runthroughDeck[0].flashcardArray[wrongAnswersCount].answer)
+//        let flashcards = realm.objects(Flashcard.self)
+//        let runthroughFlashcards = flashcards.filter("uuid like '\()'")
         
-//        if wrongAnswersCount >= wrongAnswers.count {
+        
+//        print(runthroughFlashcards)
+        
+//        if wrongAnswersCount == 0 {
+//            // do nothing for now
+//            print("No wrong answers")
+//        } else if wrongAnswersCount < wrongAnswers.count {
 //            wrongAnswersCount += 1
+//            frontLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].question)"
+//            backLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].answer)"
+//        } else if wrongAnswersCount == wrongAnswers.count {
+//            // do nothing
+//            print("Reached end of wrong answers")
 //            frontLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].question)"
 //            backLabel.text = "\(runthroughDeck[0].flashcardArray[wrongAnswersCount].answer)"
 //        }
