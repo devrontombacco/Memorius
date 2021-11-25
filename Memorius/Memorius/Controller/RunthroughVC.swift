@@ -175,8 +175,9 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapFlipButton() {
+        
         flipButtonTapped()
-        print("FLIP button tapped")
+
     }
     
     func configureWrongButton(){
@@ -196,17 +197,11 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapWrongButton(){
-
-        print("WRONG button tapped")
-        print("Adding flashcard to wrongAnswers array")
         
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        
         let uuidToAppend = runthroughDeck[0].flashcardArray[count].uuid
         wrongAnswers.append(uuidToAppend)
-        print("The uuid just added was \(wrongAnswers[0])")
-        
         increaseCountAndShowNextQstn()
 
     }
@@ -259,7 +254,6 @@ class RunthroughVC: UIViewController {
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
         
         count += 1
-        print("The count is \(count)")
         if count < runthroughDeck[0].flashcardArray.count {
             startRunthrough()
         } else {
