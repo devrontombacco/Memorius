@@ -197,9 +197,16 @@ class RunthroughVC: UIViewController {
     
     @objc private func didTapWrongButton(){
 
-        increaseCountAndShowNextQstn()
         print("WRONG button tapped")
         print("Adding flashcard to wrongAnswers array")
+        
+        let decks = realm.objects(Deck.self)
+        let runthroughDeck = decks.filter("name like '\(currentDeck)'")
+        
+        let uuidToAppend = runthroughDeck[0].flashcardArray[count].uuid
+        wrongAnswers.append(uuidToAppend)
+        
+        increaseCountAndShowNextQstn()
 
     }
     
