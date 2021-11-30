@@ -39,9 +39,11 @@ class RunthroughVC: UIViewController {
     var runthroughNo: Int = 0
     var deckFlashcardNo: Int = 0
     var currentDeck: String = ""
-    var count: Int = 0
+//    var count: Int = 0
     var currentScore: Int = 0
-    var wrongAnswers: [String] = []
+//    var wrongAnswers: [String] = []
+    var wrongAnswerIndex = Counter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

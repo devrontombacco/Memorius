@@ -33,7 +33,8 @@ class ScoreVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
-    var wrongAnswers: [String] = []
+//    var wrongAnswers: [String] = []
+    var wrongAnswersCount = Counter()
     
     // MARK: -- UIButtons
     let repeatButton = UIButton()

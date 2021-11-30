@@ -30,8 +30,8 @@ class ReviewVC: UIViewController {
     
     // MARK:-- VARIABLES
     var currentDeck: String = ""
-    var wrongAnswers: [String] = []
-    var wrongAnswersCount = 0
+//    var wrongAnswers: [String] = []
+//    var wrongAnswersCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,8 +128,9 @@ class ReviewVC: UIViewController {
     }
     
     @objc private func didTapForwardButton() {
-        print("Forward button tapped")
+
         showNextWrongAnswer()
+
     }
     
     
@@ -149,7 +150,9 @@ class ReviewVC: UIViewController {
     }
     
     @objc private func didTapBackwardsButton() {
-        print("Backwards button tapped")
+
+        showPreviousWrongAnswer()
+
     }
     
     func configureDoneButton(){
@@ -177,26 +180,50 @@ class ReviewVC: UIViewController {
         
         var myUUID = wrongAnswers[wrongAnswersCount]
         var flashcardsToReview = realm.object(ofType: Flashcard.self, forPrimaryKey: myUUID)
-        print("Flashcard with id no. \(flashcardsToReview!.uuid) has this question: \(flashcardsToReview!.question)")
-
+        
         if wrongAnswers.count == 0 {
             print("nothing to review")
             frontLabel.text = "Nothing to Review"
             backLabel.text = "Well done!"
-        } else {
-            
-            if wrongAnswersCount < wrongAnswers.count {
-                wrongAnswersCount += 1
-                frontLabel.text = "\(flashcardsToReview!.question)"
-                backLabel.text = "\(flashcardsToReview!.answer)"
-            } else if wrongAnswersCount == wrongAnswers.count {
-                print("Last wrong answer reached!")
-                // Disable Button
-            }
-        
+        } else if wrongAnswersCount == wrongAnswers.count {
+            print("There are \(wrongAnswers.count) wrong answers. You have reached the last wrong answer!")
+            // Disable Button
+        } else if wrongAnswersCount < wrongAnswers.count {
+            wrongAnswersCount += 1
+            print("There are \(wrongAnswers.count) wrong answers")
+            print("The wrongAnswersCount is \(wrongAnswersCount)")
+            frontLabel.text = "\(flashcardsToReview!.question)"
+            backLabel.text = "\(flashcardsToReview!.answer)"
         }
 
     }
     
+    func showPreviousWrongAnswer(){
+        
+        var myUUID = wrongAnswers[wrongAnswersCount]
+        var flashcardsToReview = realm.object(ofType: Flashcard.self, forPrimaryKey: myUUID)
+
+        if wrongAnswers.count == 0 {
+            frontLabel.text = "Nothing to Review"
+            backLabel.text = "Well done!"
+        } else {
+            
+            if wrongAnswersCount > 1 {
+                wrongAnswersCount -= 1
+                print("There are \(wrongAnswers.count) wrong answers")
+                print("The wrongAnswersCount is \(wrongAnswersCount)")
+                frontLabel.text = "\(flashcardsToReview!.question)"
+                backLabel.text = "\(flashcardsToReview!.answer)"
+            } else if wrongAnswersCount == 1 {
+                print("First wrong answer reached!")
+                // Disable Button
+            }
+        
+        }
+        
+    }
 
 }
+
+
+// NOTE: I am getting an index out of bounds error when reducing the count from 3 to 2?
