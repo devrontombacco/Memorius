@@ -191,6 +191,7 @@ class RunthroughVC: UIViewController {
         wrongButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
         wrongButton.setImage(UIImage(systemName: "x.circle"), for: .normal)
         wrongButton.tintColor = .white
+        
         wrongButton.backgroundColor = .systemBlue
         wrongButton.setTitleColor(.white, for: .normal)
         wrongButton.layer.cornerRadius = 24
@@ -199,11 +200,12 @@ class RunthroughVC: UIViewController {
     }
     
     @objc private func didTapWrongButton(){
-        
+//        UserDefaults.standard.value(forKey: "wrongAnswers")
+//        UserDefaults.standard.setValue([""], forKey: "wrongAnswers")
         let decks = realm.objects(Deck.self)
         let runthroughDeck = decks.filter("name like '\(currentDeck)'")
-        let uuidToAppend = runthroughDeck[0].flashcardArray[count].uuid
-        wrongAnswers.append(uuidToAppend)
+//        let uuidToAppend = runthroughDeck[0].flashcardArray[count].uuid
+//        wrongAnswers.append(uuidToAppend)
         increaseCountAndShowNextQstn()
 
     }
